@@ -1,0 +1,10 @@
+REVERSE PROXY FOR PTI WALLET
+
+VMs dont have access to PTI WALLET dev server
+
+USAGE
+
+./perlbal
+
+
+## THIS SHOULD BE RUN ON Bruno's desktop since wallet endoint is bruno.vpn.sl.pt

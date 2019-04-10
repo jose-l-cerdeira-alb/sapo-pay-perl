@@ -1,0 +1,5 @@
+vendor
+composer.lock
+templates_c
+app.log
+contacts.csv

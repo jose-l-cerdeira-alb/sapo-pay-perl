@@ -1,0 +1,19 @@
+{
+
+    "require": {
+        "symfony/console": "2.3.*@dev",
+        "symfony/dependency-injection": "2.3.*@dev",
+        "symfony/yaml": "v2.3.4",
+        "symfony/config": "v2.3.3"
+    },
+
+    "autoload": {
+        "classmap": ["src/", "vendor/"],
+        "psr-0": {
+            "Wallet\\CommandLine\\": "src/",
+            "Pay\\": "/servers/sapopay/frontend/common/libraries/",
+            "Zend\\": "/servers/sapopay/frontend/common/libraries/"
+        }
+    }
+
+}

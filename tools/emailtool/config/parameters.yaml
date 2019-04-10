@@ -1,0 +1,8 @@
+parameters:
+  broker.notifier.server : "vm-pay01.vmdev.bk.sapo.pt"
+  broker.notifier.port : 3323
+  broker.notifier.queue : "/sapo/pay/notifier"
+
+  #others : php://output , php://stderr
+  logger.output : "app.log"
+

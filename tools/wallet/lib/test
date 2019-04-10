@@ -1,0 +1,25 @@
+#!/usr/bin/ruby1.9.3
+
+require_relative 'trac/tickets'
+require_relative 'configlib'
+require_relative 'git'
+
+
+config = ConfigLib.new("/home/luissantos/.wallet/config.yml");
+
+trac_url = config.get("trac.url")
+trac_username = config.get("trac.username")
+trac_password = config.get("trac.password")
+
+#config.set("trac.teste.cookies","valor")
+#config.set("trac.teste.a","valor")
+#config.save()
+
+trac = TracLib::Tickets.new URI(trac_url) , trac_username, trac_password
+
+pp trac.get_ticket(1729)
+
+#git = GitLib.new
+
+#pp git.createFromRemote("teste","origin/develop")
+

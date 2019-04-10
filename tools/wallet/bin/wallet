@@ -1,0 +1,134 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'thor'
+require_relative '../lib/git'  
+require_relative '../lib/walletlib'
+require_relative '../lib/arcanist'
+require_relative '../lib/configlib'
+require_relative '../lib/commands/locale'
+require_relative '../lib/commands/component'
+
+class Wallet < Thor
+
+  def initialize(args=[], options={}, config={})
+
+    super(args, options, config)
+    @git = GitLib.new
+    @arc = Arcanist.new(@git)
+    @wallet = WalletLib.new( ConfigLib.new(Dir.home()+"/.wallet/config.yml") )
+    @valid_types = ['ticket','hotfix','feature','other']
+
+  end
+
+  no_commands do
+
+      def get_changelog(release)
+        url = "http://trac.intra.sapo.pt/sapopay/wiki/ChangeLog/" + release
+        print "Please check the change log for this release at " + url + ".\n"
+        print "Is this correct (y/n)?\n"
+        if (STDIN.readline.chomp.downcase != 'y')
+            print "notok\n"
+        end
+      end
+
+      def get_release
+        release = @wallet.release
+        print "Release '" + release + "'\n"
+        return release
+      end
+
+      def git_branch
+    	branch = @git.current_branch
+        print "Branch is '" + branch + "'\n"
+        return branch
+      end
+
+      def valid_type?(type)
+        @valid_types.include?(type)
+      end
+
+  end
+
+  desc "open [type] [name]", "open new branch for of [type] ticket/hotfix/feature/other with [name]"
+  def open(type, name)
+    print "This command is going to be extremely cool but it's not implemented yet! Wanna help?\n"
+  end
+
+  desc "close", "close current ticket/hotfix/feature/other branch and run corresponding actions"
+  def close
+    print "This command is going to be extremely cool but it's not implemented yet! Wanna help?\n"
+  end
+
+  desc "status", "show current branch status (pending review, approved, etc)"
+  def status
+    # branch type
+    print "You're working on branch '#{@git.current_branch}'\n"
+
+    # code review
+    if (@arc.branch_is_accepted?(@git.current_branch))
+        print "Current branch has accepted code review\n"
+    else
+        print "Current branch needs code review\n"
+    end
+
+  end
+
+  desc "switch [type] [name] ", "switch branch to specified ticket/hotfix/feature/other"
+  def switch(type, name)
+    if !valid_type?(type)
+        print "Type must be one of " + @valid_types.join(',') + "\n"
+        return    
+    end
+    if !@git.clean?
+        print "Current git status not clean. Take care of it before trying to switch.\n"
+        return
+    end
+    branch = "#{type}/#{name}"
+    begin 
+        @git.switch_branch(branch)
+    rescue
+        print "An error occurred trying to switch to branch #{branch}. Does it exist?\n"
+    end
+  end
+
+  desc "publish", "build and publish package(s) from current branch to corresponding package repository"
+  def publish
+    print "This command is going to be extremely cool but it's not implemented yet! Wanna help?\n"
+  end
+
+  desc "deploy", "build and deploy package(s) from current branch (develop environment only)"
+  def deploy
+    #print "This command is going to be extremely cool but it's not implemented yet! Wanna help?\n"
+    packages = @wallet.recursive_build
+    packages.each do |p|
+        print "Deploying #{p} on development.\n"
+    end
+  end
+
+  desc "build", "build package(s) from current branch"
+  def build
+    packages = @wallet.recursive_build
+  end
+
+  desc "review", "creates/updates code review request for current branch"
+  def review
+    print "This command is going to be extremely cool but it's not implemented yet! Wanna help?\n"
+  end
+ 
+  desc "teste", "teste"
+  def teste
+
+    ticket = @wallet.print_tickets("milestone=Release2013_11_1&status=closed")
+
+  end
+
+   desc "locale SUBCOMMAND ...ARGS", "Manages the application locales"
+   subcommand "locale", Locale
+   
+   desc "component [SUBCOMMAND] ", "Manage components"
+   subcommand "component", Component
+
+end
+
+Wallet.start

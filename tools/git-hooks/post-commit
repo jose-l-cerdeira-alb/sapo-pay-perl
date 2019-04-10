@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+from sys import argv
+from os import _exit
+from os.path import exists, join, dirname, realpath
+from subprocess import call
+
+
+path = join(dirname(realpath(__file__)), "git_hook.py")
+
+try:
+    argv.remove(__file__)
+    _exit(call([path, 'commit'] + argv))
+except (IOError, FileNotFoundError) as e:
+    if exists('/servers/pay/.git'):
+        print('This git hook does not work here. However the checkout is ok')
+_exit(0)
+
+

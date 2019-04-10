@@ -1,0 +1,8 @@
+/servers/pay/perl/lib/site_perl/5.10.1/AnyEvent/Memcached.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AnyEvent/Memcached/Buckets.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AnyEvent/Memcached/Conn.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AnyEvent/Memcached/Hash.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AnyEvent/Memcached/Hash/WithNext.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AnyEvent/Memcached/Peer.pm
+/servers/pay/perl/man/man3/AnyEvent::Memcached.3
+/servers/pay/perl/man/man3/AnyEvent::Memcached::Hash::WithNext.3

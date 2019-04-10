@@ -1,0 +1,24 @@
+branches:
+- ignore: false
+  name: 'master'
+- ignore: false
+  name: release/*
+colorize: true
+dry-run: true
+gitsvn_path: path_to_git_svn_repo
+ignore:
+- .gitignore
+- '**/t-payment.pl'
+- '**/*.lock'
+integration: true
+jenkins:
+  authorization: eebf6ffb12cae27c19179b6e15831fe6
+  branch: staging
+  ignore_ssl: true
+  job: staging
+  token: 90c7cce08f5d11e89eadb4b52fccbb10
+  url: vm-pay06.vmdev.bk.sapo.pt/jenkins
+  user: automator
+svn: http://svn.ptin.corppt.com/repo/xwallet
+timeout: 60
+verbose: true

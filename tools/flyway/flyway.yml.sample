@@ -1,0 +1,13 @@
+dev:
+  database:
+    host: vm-pay-sql01.vmdev.bk.sapo.pt
+    user: root
+    pass: vm-pay01
+    schema: sapopay
+
+  flyway:
+      basepath: /home/jorgecruz/projects/sapopay   # absolute repo folder
+      flyways: /home/jorgecruz/projects/sapopay/db/flyway/sql  # flyways base path
+      schemas:
+          - sapopay
+          - sapopayadmin

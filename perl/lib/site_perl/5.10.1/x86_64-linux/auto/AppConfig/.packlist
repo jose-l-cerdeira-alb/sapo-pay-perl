@@ -1,0 +1,14 @@
+/servers/pay/perl/lib/site_perl/5.10.1/AppConfig.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AppConfig/Args.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AppConfig/CGI.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AppConfig/File.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AppConfig/Getopt.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AppConfig/State.pm
+/servers/pay/perl/lib/site_perl/5.10.1/AppConfig/Sys.pm
+/servers/pay/perl/man/man3/AppConfig.3
+/servers/pay/perl/man/man3/AppConfig::Args.3
+/servers/pay/perl/man/man3/AppConfig::CGI.3
+/servers/pay/perl/man/man3/AppConfig::File.3
+/servers/pay/perl/man/man3/AppConfig::Getopt.3
+/servers/pay/perl/man/man3/AppConfig::State.3
+/servers/pay/perl/man/man3/AppConfig::Sys.3

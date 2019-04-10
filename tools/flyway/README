@@ -1,0 +1,8 @@
+Requires Python 3 (or 2.7 with minor edits)
+
+
+Install dependencies:
+
+	sudo pip3 install -r requirements.txt
+
+	sudo apt-get install libmysqlclient-dev
