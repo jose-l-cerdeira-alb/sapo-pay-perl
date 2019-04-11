@@ -13,7 +13,7 @@ copy_content() {
     echo "Copying content to $1"
     mkdir -p $1/$BASEDIR
 
-    cp -a ./perl $1/$BASEDIR
+    cp -a ./perl/* $1/$BASEDIR
 }
 
 . ./tools/packager.sh
