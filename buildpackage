@@ -15,7 +15,7 @@ copy_content() {
     mkdir -p $1/$BASEDIR/protobuf
 
     cp -a ./perl/* $1/$BASEDIR/perl
-    cp -a ./protobuf/* $1/$BASEDIR/potobuf
+    cp -a ./protobuf/* $1/$BASEDIR/protobuf
 }
 
 . ./tools/packager.sh
