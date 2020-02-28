@@ -40,7 +40,6 @@ sub new {
 
     #now do our own thing;
     my $socket = IO::Socket::INET->new(%sock_params);
-
     if ( defined $socket ) {
         $socket->blocking(0);
         $socket->autoflush(0);

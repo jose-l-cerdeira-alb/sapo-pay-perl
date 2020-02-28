@@ -6,6 +6,7 @@ use SAPO::Broker::Utils qw(has_ssl has_thrift has_protobufxs has_thriftxs);
 use SAPO::Broker::Messages;
 use SAPO::Broker::Transport::TCP_Async;
 use Time::HiRes "time";
+use Data::Dumper;
 
 use strict;
 use warnings;
@@ -13,14 +14,14 @@ use warnings;
 
 use constant DEBUG => 0;
 
-=head
+#=head
 #don't fail if SSL is not a viable transport (please install IO::Socket::SSL)
 
 my $has_ssl = has_ssl();
 if ($has_ssl) {
     eval 'use SAPO::Broker::Transport::SSL';
 }
-=cut
+#=cut
 
 my %DEFAULT_OPTIONS = ();    # 'proto' => 'tcp_async' );
 
@@ -94,7 +95,7 @@ sub new {
     }
 
     $self->{_error_cb} = $options{error_cb};
-    
+
     return $self;
 } ## end sub new
 
@@ -109,7 +110,6 @@ sub destroy {
 sub __get_codec {
     my (%options) = @_;
     my $codec_name = lc( $options{'codec'} );
-
     if (    ref($codec_name)
         and $codec_name->can('serialize')
         and $codec_name->can('deserialize') ) {
@@ -118,7 +118,7 @@ sub __get_codec {
         return $codec_name;
     } else {
         my $codec = $codecs{$codec_name};
-
+        
         if ($codec) {
             return $codec;
         } else {
@@ -150,7 +150,7 @@ sub __get_transport_class {
 
 sub __can_acknowledge {
     my ($kind) = @_;
-    return $kind eq 'QUEUE' or $kind eq 'VIRTUAL_QUEUE';
+    return ($kind eq 'QUEUE' or $kind eq 'VIRTUAL_QUEUE');
 }
 
 sub subscribe {
@@ -210,14 +210,14 @@ sub publish {
     if ( exists( $options{'payload'} ) ) {
         my $message = SAPO::Broker::Messages::Message->new(%options);
         my $publish;
-        
+
         if (!exists $options{action_id}) {
 					my $aid = time;
 
 					$publish = SAPO::Broker::Messages::Publish->new(
 						%options, action_id => $aid, 'message' => $message );
 
-					$self->send($publish, 
+					$self->send($publish,
 						%options,
 						cb => sub {},
 					);
@@ -241,18 +241,18 @@ sub _receive_ack {
 	print STDERR "_receive_ack\n" if DEBUG;
 
 	$self->receive(
-		timeout => 10, 
+		timeout => 10,
 		cb => sub {
 			my ($data) = @_;
 			print STDERR "receive ack cb [",ref $data,"]!\n" if DEBUG;
-			
+
 			if (ref $data eq 'SAPO::Broker::Messages::Accepted') {
 				print STDERR "received SAPO::Broker::Messages::Accepted [",$data->action_id,"]!\n" if DEBUG;
 				$cb->() if $cb;
 			}
 		}
 	);
-	
+
 }
 
 
@@ -297,6 +297,7 @@ sub receive {
 								}
                 #otherwise return the message with no modification
             } elsif ( $msg_type eq 'SAPO::Broker::Messages::Notification' ) {
+
                 #try to find whether we need to acknowledge
                 my $auto_ack_count = \$self->{'auto_ack'}->{ $message->destination };
 

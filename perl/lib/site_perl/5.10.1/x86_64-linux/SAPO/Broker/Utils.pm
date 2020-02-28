@@ -18,7 +18,7 @@ sub has_module($) {
     my ($module) = @_;
 
     eval "use $module;";
-
+    
     return not $@;
 }
 
@@ -27,7 +27,7 @@ sub has_ssl() {
 }
 
 sub has_sapo_sts() {
-    return has_module('LWP') and has_module('Crypt::SSLeay') and has_module('JSON::Any');
+    return (has_module('LWP') and has_module('Crypt::SSLeay') and has_module('JSON::Any'));
 }
 
 sub has_protobufxs() {
@@ -35,11 +35,11 @@ sub has_protobufxs() {
 }
 
 sub has_thrift() {
-    return has_module('Thrift') and has_module('SAPO::Broker::Codecs::Autogen::Thrift::Types');
+    return (has_module('Thrift') and has_module('SAPO::Broker::Codecs::Autogen::Thrift::Types'));
 }
 
 sub has_thriftxs() {
-    return has_module('Thrift::XS') and has_module('SAPO::Broker::Codecs::Autogen::Thrift::Types');
+    return (has_module('Thrift::XS') and has_module('SAPO::Broker::Codecs::Autogen::Thrift::Types'));
 }
 
 my $caller_pkg;

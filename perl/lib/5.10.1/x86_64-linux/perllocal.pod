@@ -4750,3 +4750,25 @@ C<EXE_FILES: >
 
 =back
 
+=head2 Fri Feb 28 09:20:06 2020: C<Module> L<SAPO::Broker|SAPO::Broker>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl/lib/site_perl/5.10.1>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.0.3>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

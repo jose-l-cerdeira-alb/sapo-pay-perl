@@ -2,14 +2,16 @@ package SAPO::Broker::Transport::SSL;
 
 use IO::Socket::SSL;
 use Readonly;
+use Data::Dumper;
 
 use strict;
 use warnings;
 
 use base qw(SAPO::Broker::Transport::TCP);
+#use IO::Socket::SSL qw(debug4);
 
 Readonly::Scalar my $DEFAULT_PORT => 3390;
-Readonly::Scalar my $DEFAULT_HOST => '10.18.62.34';
+Readonly::Scalar my $DEFAULT_HOST => '192.168.100.1';
 
 sub new {
     my $self = shift @_;
@@ -22,13 +24,20 @@ sub new {
     );
 
     #now do the SSL handshake on the tcp socket
-
     my $original_socket = $self->{'__socket'};
-
     #and use the new wrapped socket as if it were a regular TCP socket
-
     $original_socket->blocking(1);
-    $self->{'__socket'} = IO::Socket::SSL->start_SSL( $original_socket, @_ );
+    #warn 'options';
+    #warn Dumper(\@_);
+
+    #my @params = @_;
+
+    #push @params, SSL_verify_mode, SSL_VERIFY_NONE;
+    #print 'Parameters dump: ' . Dumper(@params);
+
+    #$self->{'__socket'} = IO::Socket::SSL->start_SSL( $original_socket, @_ ); #Commented because IO::Socket::SSL->start_SSL does not return nothing
+    #IO::Socket::SSL->start_SSL( $original_socket, @_ );
+    $self->{'__socket'} = IO::Socket::SSL->start_SSL( $original_socket ); #Because we use a self signed certificate we dont validate the certificate
     $self->{'__original_socket'} = $original_socket;
 
     return $self;
@@ -39,6 +48,8 @@ sub new {
 
 sub __write {
     my ( $self, $payload ) = @_;
+
+    my $i = 1;
 
     my $sock        = $self->{'__socket'};
     my $tot_written = 0;

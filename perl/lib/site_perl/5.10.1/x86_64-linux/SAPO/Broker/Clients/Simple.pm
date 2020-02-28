@@ -7,6 +7,7 @@ use SAPO::Broker::Messages;
 use SAPO::Broker::Clients::Minimal;
 use SAPO::Broker::Transport::TCP;
 use SAPO::Broker::Transport::UDP;
+use Data::Dumper;
 
 use strict;
 use warnings;
@@ -45,19 +46,16 @@ if ( has_protobufxs() ) {
 
 sub new {
     my ( $pack, %options ) = @_;
-
     %options = ( %DEFAULT_OPTIONS, %options );
 
     my $codec     = __get_codec(%options);
     my $transport = __get_transport_class(%options)->new(%options);
-
     my $self = $pack->SUPER::new(
         'codec'     => $codec,
         'transport' => $transport,
     );
 
     $self->{'auto_ack'} = {};
-
     return $self;
 
 }
@@ -101,7 +99,7 @@ sub __get_transport_class {
 
 sub __can_acknowledge($) {
     my ($kind) = @_;
-    return $kind eq 'QUEUE' or $kind eq 'VIRTUAL_QUEUE';
+    return ($kind eq 'QUEUE' or $kind eq 'VIRTUAL_QUEUE');
 }
 
 sub subscribe {

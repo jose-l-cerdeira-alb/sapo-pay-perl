@@ -30,14 +30,14 @@ sub new {
         #on_eof => sub { delete $self->{__socket} },
 				on_eof => sub {
           delete $self->{__socket};
-          print STDERR "on_eof\n" if DEBUG;
+          #print STDERR "on_eof\n";
 					$params{eof_cb}->() if $params{eof_cb};
 				},
 
         on_error => sub {
             my ( $h, $fatal, $msg ) = @_;
 
-            print STDERR "on_error: [$fatal]\n" if DEBUG;
+            #print STDERR "on_error: [$fatal]\n";
             $self->__drain($fatal,$msg);
             $self->{_error_cb}->($fatal,$msg) if exists $self->{_error_cb};
 
@@ -116,7 +116,7 @@ sub __drain {
 sub __write {
     my ( $self, $payload, %args ) = @_;
 
-    print STDERR "__write: ", Dumper(\%args),"\n" if DEBUG;
+    #print STDERR "__write", Dumper(\%args),"\n";
 
     if ( !exists $self->{__socket} ) { die "stale socket" }
 
@@ -136,8 +136,6 @@ sub __write {
 sub __read {
 	my ($self, $len, %args) = @_;
 	
-	my @x = caller(1);
-	print "_read caller: $x[0] $x[3]\n" if DEBUG;
 	if (!exists $self->{__socket}) { die "stale socket" }
 	
 	my $k = time();
@@ -172,8 +170,6 @@ sub __read {
 sub _receive {
 	my ($self) = @_;
 	
-	my @x = caller(3);
-	print "_receive caller: $x[0] $x[3]\n" if DEBUG;
 	my $args = $self->{_rq}->[0];
 	return unless $args;
 	
@@ -197,7 +193,7 @@ sub _receive {
 						'payload' => $_[0] 
 					});
 				
-					print STDERR __PACKAGE__."::read CB 2 msg type [$type] [",ref $msg,"]\n" if DEBUG;
+					print STDERR __PACKAGE__."::read CB 2 msg [",ref $msg,"]\n" if DEBUG;
 
 					$args->{cb}->($msg) if exists $args->{cb};
 					

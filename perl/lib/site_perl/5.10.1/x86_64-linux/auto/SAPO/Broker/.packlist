@@ -66,6 +66,7 @@
 /servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/SAPO/Broker/Transport/TCP_Async.pm
 /servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/SAPO/Broker/Transport/UDP.pm
 /servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/SAPO/Broker/Utils.pm
+/servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/SAPO/autogen_protobuf_thrift.pl
 /servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/SAPO/autogen_protobufxs.pl
 /servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/SAPO/autogen_thrift.pl
 /servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/SAPO/create_class.pl

@@ -95,7 +95,7 @@ sub serialize_poll($$) {
 
 sub parse_accepted($) {
     my ($action) = @_;
-    return SAPO::Broker::Messages::Accepted( $action->accepted() );
+    return SAPO::Broker::Messages::Accepted->new( $action->accepted() );
 }
 
 sub serialize_acknowledge($$) {

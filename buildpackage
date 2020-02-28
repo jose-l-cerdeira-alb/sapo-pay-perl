@@ -3,7 +3,7 @@ set -e
 
 PACKAGE=sapo-pay-perl
 DESCRIPTION="Sapo Pay Perl Runtime and Modules"
-BASEDIR=/servers/pay/perl
+BASEDIR=/servers/pay
 
 pre_build_hook() {
     echo
@@ -13,7 +13,8 @@ copy_content() {
     echo "Copying content to $1"
     mkdir -p $1/$BASEDIR
 
-    cp -a ./perl/* $1/$BASEDIR
+    cp -a ./perl/* $1/$BASEDIR/perl
+    cp -a ./protobuf/* $1/$BASEDIR/potobuf
 }
 
 . ./tools/packager.sh
