@@ -12,10 +12,8 @@ pre_build_hook() {
 copy_content() {
     echo "Copying content to $1"
     mkdir -p $1/$BASEDIR/perl
-    mkdir -p $1/$BASEDIR/protobuf
 
     cp -a ./perl/* $1/$BASEDIR/perl
-    cp -a ./protobuf/* $1/$BASEDIR/protobuf
 }
 
 . ./tools/packager.sh
