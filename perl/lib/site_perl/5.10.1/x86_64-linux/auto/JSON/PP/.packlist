@@ -1,0 +1,6 @@
+/servers/pay/perl/bin/json_pp
+/servers/pay/perl/lib/site_perl/5.10.1/JSON/PP.pm
+/servers/pay/perl/lib/site_perl/5.10.1/JSON/PP/Boolean.pm
+/servers/pay/perl/man/man1/json_pp.1
+/servers/pay/perl/man/man3/JSON::PP.3
+/servers/pay/perl/man/man3/JSON::PP::Boolean.3
