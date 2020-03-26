@@ -1,5 +1,0 @@
-an attempt at a nonblocking client with the help of AnyEvent
---This line, and those below, will be ignored--
-
-A    Broker/Clients/Async.pm
-A    Broker/Transport/TCP_Async.pm

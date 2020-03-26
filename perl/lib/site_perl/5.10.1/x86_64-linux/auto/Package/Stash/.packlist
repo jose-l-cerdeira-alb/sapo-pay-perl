@@ -1,6 +1,0 @@
-/servers/pay/perl/bin/package-stash-conflicts
-/servers/pay/perl/lib/site_perl/5.10.1/Package/Stash.pm
-/servers/pay/perl/lib/site_perl/5.10.1/Package/Stash/Conflicts.pm
-/servers/pay/perl/lib/site_perl/5.10.1/Package/Stash/PP.pm
-/servers/pay/perl/man/man3/Package::Stash.3
-/servers/pay/perl/man/man3/Package::Stash::PP.3
