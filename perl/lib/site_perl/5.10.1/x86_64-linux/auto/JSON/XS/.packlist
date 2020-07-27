@@ -1,8 +1,0 @@
-/servers/pay/perl/bin/json_xs
-/servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/JSON/XS.pm
-/servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/JSON/XS/Boolean.pm
-/servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/auto/JSON/XS/XS.bs
-/servers/pay/perl/lib/site_perl/5.10.1/x86_64-linux/auto/JSON/XS/XS.so
-/servers/pay/perl/man/man1/json_xs.1
-/servers/pay/perl/man/man3/JSON::XS.3
-/servers/pay/perl/man/man3/JSON::XS::Boolean.3

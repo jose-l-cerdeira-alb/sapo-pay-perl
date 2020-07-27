@@ -1,7 +1,4 @@
-#!/servers/pay/perl/bin/perl
-
-eval 'exec /servers/pay/perl/bin/perl  -S $0 ${1+"$@"}'
-    if 0; # not running under some shell
+#!/servers/pay/perl-5.32/bin/perl
 
 use strict;
 use warnings;

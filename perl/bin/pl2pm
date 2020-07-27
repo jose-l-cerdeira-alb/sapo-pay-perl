@@ -1,5 +1,5 @@
-#!/servers/pay/perl/bin/perl
-    eval 'exec /servers/pay/perl/bin/perl -S $0 ${1+"$@"}'
+#!/servers/pay/perl-5.32/bin/perl
+    eval 'exec /servers/pay/perl-5.32/bin/perl -S $0 ${1+"$@"}'
 	if $running_under_some_shell;
 
 =head1 NAME
@@ -93,7 +93,7 @@ while (<>) {
 	$export_ok = "\@EXPORT_OK = qw(@export_ok);\n";
     }
 
-    if ( open(PM, ">$newname") ) {
+    if ( open(PM, ">", $newname) ) {
         print PM <<"END";
 package $newpack;
 use 5.006;

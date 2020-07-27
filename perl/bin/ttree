@@ -1,7 +1,4 @@
-#!/servers/pay/perl/bin/perl -w
-
-eval 'exec /servers/pay/perl/bin/perl -w -S $0 ${1+"$@"}'
-    if 0; # not running under some shell
+#!/servers/pay/perl-5.32/bin/perl -w
 #========================================================================
 #
 # ttree
@@ -18,7 +15,7 @@ eval 'exec /servers/pay/perl/bin/perl -w -S $0 ${1+"$@"}'
 #   Andy Wardley   <abw@wardley.org>
 #
 # COPYRIGHT
-#   Copyright (C) 1996-2012 Andy Wardley.  All Rights Reserved.
+#   Copyright (C) 1996-2013 Andy Wardley.  All Rights Reserved.
 #   Copyright (C) 1998-2003 Canon Research Centre Europe Ltd.
 #
 #   This module is free software; you can redistribute it and/or
@@ -295,16 +292,6 @@ sub process_tree {
             }
         }
 
-        # check against acceptance list
-        if (@$accept) {
-            unless ((-d $abspath && $recurse) || grep { $path =~ /$_/ } @$accept) {
-                printf yellow("  - %-32s (not accepted)\n"), $path
-                    if $verbose > 1;
-                $n_skip++;
-                next FILE;
-            }
-        }
-
         if (-d $abspath) {
             if ($recurse) {
                 my ($uid, $gid, $mode);
@@ -391,6 +378,16 @@ sub process_file {
                 $check = $copy_pattern;
                 last;
             }
+        }
+    }
+
+    # check against acceptance list
+    if (not $copy_file and @$accept) {
+        unless (grep { $filename =~ /$_/ } @$accept) {
+            printf yellow("  - %-32s (not accepted)\n"), $file
+                if $verbose > 1;
+            $n_skip++;
+            return;
         }
     }
 
@@ -635,6 +632,7 @@ sub read_config {
         'template_default|default=s',
         'template_error|error=s',
         'template_debug|debug=s',
+        'template_strict|strict',
         'template_start_tag|start_tag|starttag=s',
         'template_end_tag|end_tag|endtag=s',
         'template_tag_style|tag_style|tagstyle=s',
@@ -696,7 +694,7 @@ sub _white(@)  { @_ }                   # nullop
 sub write_config {
     my $file = shift;
 
-    open(CONFIG, ">$file") || die "failed to create $file: $!\n";
+    open(CONFIG, ">", $file) || die "failed to create $file: $!\n";
     print(CONFIG <<END_OF_CONFIG);
 #------------------------------------------------------------------------
 # sample .ttreerc file created automatically by $NAME version $VERSION

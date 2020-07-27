@@ -1,4 +1,4 @@
-#!/servers/pay/perl/bin/perl
+#!/servers/pay/perl-5.32/bin/perl
 use strict;
 use Plack::Runner;
 
