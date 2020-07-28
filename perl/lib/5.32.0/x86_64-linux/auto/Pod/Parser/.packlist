@@ -1,0 +1,14 @@
+/servers/pay/perl-5.32/bin/podselect
+/servers/pay/perl-5.32/lib/5.32.0/Pod/Find.pm
+/servers/pay/perl-5.32/lib/5.32.0/Pod/InputObjects.pm
+/servers/pay/perl-5.32/lib/5.32.0/Pod/ParseUtils.pm
+/servers/pay/perl-5.32/lib/5.32.0/Pod/Parser.pm
+/servers/pay/perl-5.32/lib/5.32.0/Pod/PlainText.pm
+/servers/pay/perl-5.32/lib/5.32.0/Pod/Select.pm
+/servers/pay/perl-5.32/man/man1/podselect.1
+/servers/pay/perl-5.32/man/man3/Pod::Find.3
+/servers/pay/perl-5.32/man/man3/Pod::InputObjects.3
+/servers/pay/perl-5.32/man/man3/Pod::ParseUtils.3
+/servers/pay/perl-5.32/man/man3/Pod::Parser.3
+/servers/pay/perl-5.32/man/man3/Pod::PlainText.3
+/servers/pay/perl-5.32/man/man3/Pod::Select.3

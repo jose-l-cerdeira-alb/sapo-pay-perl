@@ -1,0 +1,4 @@
+/servers/pay/perl-5.32/bin/use-devel-checklib
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Devel/CheckLib.pm
+/servers/pay/perl-5.32/man/man1/use-devel-checklib.1
+/servers/pay/perl-5.32/man/man3/Devel::CheckLib.3

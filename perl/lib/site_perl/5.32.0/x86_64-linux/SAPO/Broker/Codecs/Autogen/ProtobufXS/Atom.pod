@@ -1,0 +1,2509 @@
+=pod
+
+=head1 NAME
+
+SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom - Perl/XS interface to SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom
+
+=head1 SYNOPSIS
+
+=head2 Serializing messages
+
+ #!/usr/bin/perl
+
+ use strict;
+ use warnings;
+ use SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom;
+
+ my $Atom = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom->new;
+ # Set fields in $Atom...
+ my $packAtom = $Atom->pack();
+
+=head2 Unserializing messages
+
+ #!/usr/bin/perl
+
+ use strict;
+ use warnings;
+ use SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom;
+
+ my $packAtom; # Read this from somewhere...
+ my $Atom = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom->new;
+ if ( $Atom->unpack($packAtom) ) {
+   print "OK"
+ } else {
+   print "NOT OK"
+ }
+
+=head1 DESCRIPTION
+
+SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom defines the following classes:
+
+=over 5
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.DestinationType enum
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Parameter message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Header>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Header message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.BrokerMessage message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Publish>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Publish message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Poll>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Poll message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Accepted>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Accepted message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::AcknowledgeMessage>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.AcknowledgeMessage message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Subscribe>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Subscribe message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Unsubscribe>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Unsubscribe message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Notification>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Notification message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Fault>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Fault message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Ping>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Ping message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Pong>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Pong message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Authentication>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Authentication message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action::ActionType>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Action.ActionType enum
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom.Action message
+
+=item C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom>
+
+A wrapper around the SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom message
+
+
+=back
+
+=head1 C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType> values
+
+=over 4
+
+=item B<TOPIC>
+
+This constant has a value of 0.
+
+=item B<QUEUE>
+
+This constant has a value of 1.
+
+=item B<VIRTUAL_QUEUE>
+
+This constant has a value of 2.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter Constructor
+
+=over 4
+
+=item B<$Parameter = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter Methods
+
+=over 4
+
+=item B<$Parameter2-E<gt>copy_from($Parameter1)>
+
+Copies the contents of C<Parameter1> into C<Parameter2>.
+C<Parameter2> is another instance of the same message type.
+
+=item B<$Parameter2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Parameter2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Parameter2-E<gt>merge_from($Parameter1)>
+
+Merges the contents of C<Parameter1> into C<Parameter2>.
+C<Parameter2> is another instance of the same message type.
+
+=item B<$Parameter2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Parameter2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Parameter-E<gt>clear()>
+
+Clears the contents of C<Parameter>.
+
+=item B<$init = $Parameter-E<gt>is_initialized()>
+
+Returns 1 if C<Parameter> has been initialized with data.
+
+=item B<$errstr = $Parameter-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Parameter-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Parameter>.
+
+=item B<$dstr = $Parameter-E<gt>debug_string()>
+
+Returns a string representation of C<Parameter>.
+
+=item B<$dstr = $Parameter-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Parameter>.
+
+=item B<$ok = $Parameter-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Parameter>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Parameter-E<gt>pack()>
+
+Serializes C<Parameter> into C<string>.
+
+=item B<$length = $Parameter-E<gt>length()>
+
+Returns the serialized length of C<Parameter>.
+
+=item B<@fields = $Parameter-E<gt>fields()>
+
+Returns the defined fields of C<Parameter>.
+
+=item B<$hashref = $Parameter-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_name = $Parameter-E<gt>has_name()>
+
+Returns 1 if the C<name> element of C<Parameter> is set, 0 otherwise.
+
+=item B<$Parameter-E<gt>clear_name()>
+
+Clears the C<name> element(s) of C<Parameter>.
+
+=item B<$name = $Parameter-E<gt>name()>
+
+Returns C<name> from C<Parameter>.  C<name> will be a string.
+
+=item B<$Parameter-E<gt>set_name($value)>
+
+Sets the value of C<name> in C<Parameter> to C<value>.  C<value> must be a string.
+
+=item B<$has_value = $Parameter-E<gt>has_value()>
+
+Returns 1 if the C<value> element of C<Parameter> is set, 0 otherwise.
+
+=item B<$Parameter-E<gt>clear_value()>
+
+Clears the C<value> element(s) of C<Parameter>.
+
+=item B<$value = $Parameter-E<gt>value()>
+
+Returns C<value> from C<Parameter>.  C<value> will be a string.
+
+=item B<$Parameter-E<gt>set_value($value)>
+
+Sets the value of C<value> in C<Parameter> to C<value>.  C<value> must be a string.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Header Constructor
+
+=over 4
+
+=item B<$Header = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Header-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Header>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Header Methods
+
+=over 4
+
+=item B<$Header2-E<gt>copy_from($Header1)>
+
+Copies the contents of C<Header1> into C<Header2>.
+C<Header2> is another instance of the same message type.
+
+=item B<$Header2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Header2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Header2-E<gt>merge_from($Header1)>
+
+Merges the contents of C<Header1> into C<Header2>.
+C<Header2> is another instance of the same message type.
+
+=item B<$Header2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Header2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Header-E<gt>clear()>
+
+Clears the contents of C<Header>.
+
+=item B<$init = $Header-E<gt>is_initialized()>
+
+Returns 1 if C<Header> has been initialized with data.
+
+=item B<$errstr = $Header-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Header-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Header>.
+
+=item B<$dstr = $Header-E<gt>debug_string()>
+
+Returns a string representation of C<Header>.
+
+=item B<$dstr = $Header-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Header>.
+
+=item B<$ok = $Header-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Header>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Header-E<gt>pack()>
+
+Serializes C<Header> into C<string>.
+
+=item B<$length = $Header-E<gt>length()>
+
+Returns the serialized length of C<Header>.
+
+=item B<@fields = $Header-E<gt>fields()>
+
+Returns the defined fields of C<Header>.
+
+=item B<$hashref = $Header-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$parameter_size = $Header-E<gt>parameter_size()>
+
+Returns the number of C<parameter> elements present in C<Header>.
+
+=item B<$Header-E<gt>clear_parameter()>
+
+Clears the C<parameter> element(s) of C<Header>.
+
+=item B<@parameter_list = $Header-E<gt>parameter()>
+
+Returns all values of C<parameter> in an array.  Each element of C<parameter_list> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter.
+
+=item B<$parameter_elem = $Header-E<gt>parameter($index)>
+
+Returns C<parameter> element C<index> from C<Header>.  C<parameter> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter, unless C<index> is out of range, in which case it will be undef.
+
+=item B<$Header-E<gt>add_parameter($value)>
+
+Adds C<value> to the list of C<parameter> in C<Header>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Parameter.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage Constructor
+
+=over 4
+
+=item B<$BrokerMessage = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage Methods
+
+=over 4
+
+=item B<$BrokerMessage2-E<gt>copy_from($BrokerMessage1)>
+
+Copies the contents of C<BrokerMessage1> into C<BrokerMessage2>.
+C<BrokerMessage2> is another instance of the same message type.
+
+=item B<$BrokerMessage2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<BrokerMessage2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$BrokerMessage2-E<gt>merge_from($BrokerMessage1)>
+
+Merges the contents of C<BrokerMessage1> into C<BrokerMessage2>.
+C<BrokerMessage2> is another instance of the same message type.
+
+=item B<$BrokerMessage2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<BrokerMessage2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$BrokerMessage-E<gt>clear()>
+
+Clears the contents of C<BrokerMessage>.
+
+=item B<$init = $BrokerMessage-E<gt>is_initialized()>
+
+Returns 1 if C<BrokerMessage> has been initialized with data.
+
+=item B<$errstr = $BrokerMessage-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$BrokerMessage-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<BrokerMessage>.
+
+=item B<$dstr = $BrokerMessage-E<gt>debug_string()>
+
+Returns a string representation of C<BrokerMessage>.
+
+=item B<$dstr = $BrokerMessage-E<gt>short_debug_string()>
+
+Returns a short string representation of C<BrokerMessage>.
+
+=item B<$ok = $BrokerMessage-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<BrokerMessage>, returning 1 on success and 0 on failure.
+
+=item B<$string = $BrokerMessage-E<gt>pack()>
+
+Serializes C<BrokerMessage> into C<string>.
+
+=item B<$length = $BrokerMessage-E<gt>length()>
+
+Returns the serialized length of C<BrokerMessage>.
+
+=item B<@fields = $BrokerMessage-E<gt>fields()>
+
+Returns the defined fields of C<BrokerMessage>.
+
+=item B<$hashref = $BrokerMessage-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_message_id = $BrokerMessage-E<gt>has_message_id()>
+
+Returns 1 if the C<message_id> element of C<BrokerMessage> is set, 0 otherwise.
+
+=item B<$BrokerMessage-E<gt>clear_message_id()>
+
+Clears the C<message_id> element(s) of C<BrokerMessage>.
+
+=item B<$message_id = $BrokerMessage-E<gt>message_id()>
+
+Returns C<message_id> from C<BrokerMessage>.  C<message_id> will be a string.
+
+=item B<$BrokerMessage-E<gt>set_message_id($value)>
+
+Sets the value of C<message_id> in C<BrokerMessage> to C<value>.  C<value> must be a string.
+
+=item B<$has_payload = $BrokerMessage-E<gt>has_payload()>
+
+Returns 1 if the C<payload> element of C<BrokerMessage> is set, 0 otherwise.
+
+=item B<$BrokerMessage-E<gt>clear_payload()>
+
+Clears the C<payload> element(s) of C<BrokerMessage>.
+
+=item B<$payload = $BrokerMessage-E<gt>payload()>
+
+Returns C<payload> from C<BrokerMessage>.  C<payload> will be a string.
+
+=item B<$BrokerMessage-E<gt>set_payload($value)>
+
+Sets the value of C<payload> in C<BrokerMessage> to C<value>.  C<value> must be a string.
+
+=item B<$has_expiration = $BrokerMessage-E<gt>has_expiration()>
+
+Returns 1 if the C<expiration> element of C<BrokerMessage> is set, 0 otherwise.
+
+=item B<$BrokerMessage-E<gt>clear_expiration()>
+
+Clears the C<expiration> element(s) of C<BrokerMessage>.
+
+=item B<$expiration = $BrokerMessage-E<gt>expiration()>
+
+Returns C<expiration> from C<BrokerMessage>.  C<expiration> will be a 64-bit signed integer.
+
+=item B<$BrokerMessage-E<gt>set_expiration($value)>
+
+Sets the value of C<expiration> in C<BrokerMessage> to C<value>.  C<value> must be a 64-bit signed integer.
+
+=item B<$has_timestamp = $BrokerMessage-E<gt>has_timestamp()>
+
+Returns 1 if the C<timestamp> element of C<BrokerMessage> is set, 0 otherwise.
+
+=item B<$BrokerMessage-E<gt>clear_timestamp()>
+
+Clears the C<timestamp> element(s) of C<BrokerMessage>.
+
+=item B<$timestamp = $BrokerMessage-E<gt>timestamp()>
+
+Returns C<timestamp> from C<BrokerMessage>.  C<timestamp> will be a 64-bit signed integer.
+
+=item B<$BrokerMessage-E<gt>set_timestamp($value)>
+
+Sets the value of C<timestamp> in C<BrokerMessage> to C<value>.  C<value> must be a 64-bit signed integer.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Publish Constructor
+
+=over 4
+
+=item B<$Publish = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Publish-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Publish>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Publish Methods
+
+=over 4
+
+=item B<$Publish2-E<gt>copy_from($Publish1)>
+
+Copies the contents of C<Publish1> into C<Publish2>.
+C<Publish2> is another instance of the same message type.
+
+=item B<$Publish2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Publish2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Publish2-E<gt>merge_from($Publish1)>
+
+Merges the contents of C<Publish1> into C<Publish2>.
+C<Publish2> is another instance of the same message type.
+
+=item B<$Publish2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Publish2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Publish-E<gt>clear()>
+
+Clears the contents of C<Publish>.
+
+=item B<$init = $Publish-E<gt>is_initialized()>
+
+Returns 1 if C<Publish> has been initialized with data.
+
+=item B<$errstr = $Publish-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Publish-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Publish>.
+
+=item B<$dstr = $Publish-E<gt>debug_string()>
+
+Returns a string representation of C<Publish>.
+
+=item B<$dstr = $Publish-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Publish>.
+
+=item B<$ok = $Publish-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Publish>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Publish-E<gt>pack()>
+
+Serializes C<Publish> into C<string>.
+
+=item B<$length = $Publish-E<gt>length()>
+
+Returns the serialized length of C<Publish>.
+
+=item B<@fields = $Publish-E<gt>fields()>
+
+Returns the defined fields of C<Publish>.
+
+=item B<$hashref = $Publish-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Publish-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Publish> is set, 0 otherwise.
+
+=item B<$Publish-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Publish>.
+
+=item B<$action_id = $Publish-E<gt>action_id()>
+
+Returns C<action_id> from C<Publish>.  C<action_id> will be a string.
+
+=item B<$Publish-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Publish> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination_type = $Publish-E<gt>has_destination_type()>
+
+Returns 1 if the C<destination_type> element of C<Publish> is set, 0 otherwise.
+
+=item B<$Publish-E<gt>clear_destination_type()>
+
+Clears the C<destination_type> element(s) of C<Publish>.
+
+=item B<$destination_type = $Publish-E<gt>destination_type()>
+
+Returns C<destination_type> from C<Publish>.  C<destination_type> will be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+=item B<$Publish-E<gt>set_destination_type($value)>
+
+Sets the value of C<destination_type> in C<Publish> to C<value>.  C<value> must be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+=item B<$has_destination = $Publish-E<gt>has_destination()>
+
+Returns 1 if the C<destination> element of C<Publish> is set, 0 otherwise.
+
+=item B<$Publish-E<gt>clear_destination()>
+
+Clears the C<destination> element(s) of C<Publish>.
+
+=item B<$destination = $Publish-E<gt>destination()>
+
+Returns C<destination> from C<Publish>.  C<destination> will be a string.
+
+=item B<$Publish-E<gt>set_destination($value)>
+
+Sets the value of C<destination> in C<Publish> to C<value>.  C<value> must be a string.
+
+=item B<$has_message = $Publish-E<gt>has_message()>
+
+Returns 1 if the C<message> element of C<Publish> is set, 0 otherwise.
+
+=item B<$Publish-E<gt>clear_message()>
+
+Clears the C<message> element(s) of C<Publish>.
+
+=item B<$message = $Publish-E<gt>message()>
+
+Returns C<message> from C<Publish>.  C<message> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage.
+
+=item B<$Publish-E<gt>set_message($value)>
+
+Sets the value of C<message> in C<Publish> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Poll Constructor
+
+=over 4
+
+=item B<$Poll = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Poll-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Poll>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Poll Methods
+
+=over 4
+
+=item B<$Poll2-E<gt>copy_from($Poll1)>
+
+Copies the contents of C<Poll1> into C<Poll2>.
+C<Poll2> is another instance of the same message type.
+
+=item B<$Poll2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Poll2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Poll2-E<gt>merge_from($Poll1)>
+
+Merges the contents of C<Poll1> into C<Poll2>.
+C<Poll2> is another instance of the same message type.
+
+=item B<$Poll2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Poll2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Poll-E<gt>clear()>
+
+Clears the contents of C<Poll>.
+
+=item B<$init = $Poll-E<gt>is_initialized()>
+
+Returns 1 if C<Poll> has been initialized with data.
+
+=item B<$errstr = $Poll-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Poll-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Poll>.
+
+=item B<$dstr = $Poll-E<gt>debug_string()>
+
+Returns a string representation of C<Poll>.
+
+=item B<$dstr = $Poll-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Poll>.
+
+=item B<$ok = $Poll-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Poll>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Poll-E<gt>pack()>
+
+Serializes C<Poll> into C<string>.
+
+=item B<$length = $Poll-E<gt>length()>
+
+Returns the serialized length of C<Poll>.
+
+=item B<@fields = $Poll-E<gt>fields()>
+
+Returns the defined fields of C<Poll>.
+
+=item B<$hashref = $Poll-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Poll-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Poll> is set, 0 otherwise.
+
+=item B<$Poll-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Poll>.
+
+=item B<$action_id = $Poll-E<gt>action_id()>
+
+Returns C<action_id> from C<Poll>.  C<action_id> will be a string.
+
+=item B<$Poll-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Poll> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination = $Poll-E<gt>has_destination()>
+
+Returns 1 if the C<destination> element of C<Poll> is set, 0 otherwise.
+
+=item B<$Poll-E<gt>clear_destination()>
+
+Clears the C<destination> element(s) of C<Poll>.
+
+=item B<$destination = $Poll-E<gt>destination()>
+
+Returns C<destination> from C<Poll>.  C<destination> will be a string.
+
+=item B<$Poll-E<gt>set_destination($value)>
+
+Sets the value of C<destination> in C<Poll> to C<value>.  C<value> must be a string.
+
+=item B<$has_timeout = $Poll-E<gt>has_timeout()>
+
+Returns 1 if the C<timeout> element of C<Poll> is set, 0 otherwise.
+
+=item B<$Poll-E<gt>clear_timeout()>
+
+Clears the C<timeout> element(s) of C<Poll>.
+
+=item B<$timeout = $Poll-E<gt>timeout()>
+
+Returns C<timeout> from C<Poll>.  C<timeout> will be a 64-bit signed integer.
+
+=item B<$Poll-E<gt>set_timeout($value)>
+
+Sets the value of C<timeout> in C<Poll> to C<value>.  C<value> must be a 64-bit signed integer.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Accepted Constructor
+
+=over 4
+
+=item B<$Accepted = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Accepted-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Accepted>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Accepted Methods
+
+=over 4
+
+=item B<$Accepted2-E<gt>copy_from($Accepted1)>
+
+Copies the contents of C<Accepted1> into C<Accepted2>.
+C<Accepted2> is another instance of the same message type.
+
+=item B<$Accepted2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Accepted2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Accepted2-E<gt>merge_from($Accepted1)>
+
+Merges the contents of C<Accepted1> into C<Accepted2>.
+C<Accepted2> is another instance of the same message type.
+
+=item B<$Accepted2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Accepted2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Accepted-E<gt>clear()>
+
+Clears the contents of C<Accepted>.
+
+=item B<$init = $Accepted-E<gt>is_initialized()>
+
+Returns 1 if C<Accepted> has been initialized with data.
+
+=item B<$errstr = $Accepted-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Accepted-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Accepted>.
+
+=item B<$dstr = $Accepted-E<gt>debug_string()>
+
+Returns a string representation of C<Accepted>.
+
+=item B<$dstr = $Accepted-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Accepted>.
+
+=item B<$ok = $Accepted-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Accepted>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Accepted-E<gt>pack()>
+
+Serializes C<Accepted> into C<string>.
+
+=item B<$length = $Accepted-E<gt>length()>
+
+Returns the serialized length of C<Accepted>.
+
+=item B<@fields = $Accepted-E<gt>fields()>
+
+Returns the defined fields of C<Accepted>.
+
+=item B<$hashref = $Accepted-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Accepted-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Accepted> is set, 0 otherwise.
+
+=item B<$Accepted-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Accepted>.
+
+=item B<$action_id = $Accepted-E<gt>action_id()>
+
+Returns C<action_id> from C<Accepted>.  C<action_id> will be a string.
+
+=item B<$Accepted-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Accepted> to C<value>.  C<value> must be a string.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::AcknowledgeMessage Constructor
+
+=over 4
+
+=item B<$AcknowledgeMessage = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::AcknowledgeMessage-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::AcknowledgeMessage>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::AcknowledgeMessage Methods
+
+=over 4
+
+=item B<$AcknowledgeMessage2-E<gt>copy_from($AcknowledgeMessage1)>
+
+Copies the contents of C<AcknowledgeMessage1> into C<AcknowledgeMessage2>.
+C<AcknowledgeMessage2> is another instance of the same message type.
+
+=item B<$AcknowledgeMessage2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<AcknowledgeMessage2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$AcknowledgeMessage2-E<gt>merge_from($AcknowledgeMessage1)>
+
+Merges the contents of C<AcknowledgeMessage1> into C<AcknowledgeMessage2>.
+C<AcknowledgeMessage2> is another instance of the same message type.
+
+=item B<$AcknowledgeMessage2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<AcknowledgeMessage2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$AcknowledgeMessage-E<gt>clear()>
+
+Clears the contents of C<AcknowledgeMessage>.
+
+=item B<$init = $AcknowledgeMessage-E<gt>is_initialized()>
+
+Returns 1 if C<AcknowledgeMessage> has been initialized with data.
+
+=item B<$errstr = $AcknowledgeMessage-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$AcknowledgeMessage-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<AcknowledgeMessage>.
+
+=item B<$dstr = $AcknowledgeMessage-E<gt>debug_string()>
+
+Returns a string representation of C<AcknowledgeMessage>.
+
+=item B<$dstr = $AcknowledgeMessage-E<gt>short_debug_string()>
+
+Returns a short string representation of C<AcknowledgeMessage>.
+
+=item B<$ok = $AcknowledgeMessage-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<AcknowledgeMessage>, returning 1 on success and 0 on failure.
+
+=item B<$string = $AcknowledgeMessage-E<gt>pack()>
+
+Serializes C<AcknowledgeMessage> into C<string>.
+
+=item B<$length = $AcknowledgeMessage-E<gt>length()>
+
+Returns the serialized length of C<AcknowledgeMessage>.
+
+=item B<@fields = $AcknowledgeMessage-E<gt>fields()>
+
+Returns the defined fields of C<AcknowledgeMessage>.
+
+=item B<$hashref = $AcknowledgeMessage-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $AcknowledgeMessage-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<AcknowledgeMessage> is set, 0 otherwise.
+
+=item B<$AcknowledgeMessage-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<AcknowledgeMessage>.
+
+=item B<$action_id = $AcknowledgeMessage-E<gt>action_id()>
+
+Returns C<action_id> from C<AcknowledgeMessage>.  C<action_id> will be a string.
+
+=item B<$AcknowledgeMessage-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<AcknowledgeMessage> to C<value>.  C<value> must be a string.
+
+=item B<$has_message_id = $AcknowledgeMessage-E<gt>has_message_id()>
+
+Returns 1 if the C<message_id> element of C<AcknowledgeMessage> is set, 0 otherwise.
+
+=item B<$AcknowledgeMessage-E<gt>clear_message_id()>
+
+Clears the C<message_id> element(s) of C<AcknowledgeMessage>.
+
+=item B<$message_id = $AcknowledgeMessage-E<gt>message_id()>
+
+Returns C<message_id> from C<AcknowledgeMessage>.  C<message_id> will be a string.
+
+=item B<$AcknowledgeMessage-E<gt>set_message_id($value)>
+
+Sets the value of C<message_id> in C<AcknowledgeMessage> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination = $AcknowledgeMessage-E<gt>has_destination()>
+
+Returns 1 if the C<destination> element of C<AcknowledgeMessage> is set, 0 otherwise.
+
+=item B<$AcknowledgeMessage-E<gt>clear_destination()>
+
+Clears the C<destination> element(s) of C<AcknowledgeMessage>.
+
+=item B<$destination = $AcknowledgeMessage-E<gt>destination()>
+
+Returns C<destination> from C<AcknowledgeMessage>.  C<destination> will be a string.
+
+=item B<$AcknowledgeMessage-E<gt>set_destination($value)>
+
+Sets the value of C<destination> in C<AcknowledgeMessage> to C<value>.  C<value> must be a string.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Subscribe Constructor
+
+=over 4
+
+=item B<$Subscribe = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Subscribe-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Subscribe>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Subscribe Methods
+
+=over 4
+
+=item B<$Subscribe2-E<gt>copy_from($Subscribe1)>
+
+Copies the contents of C<Subscribe1> into C<Subscribe2>.
+C<Subscribe2> is another instance of the same message type.
+
+=item B<$Subscribe2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Subscribe2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Subscribe2-E<gt>merge_from($Subscribe1)>
+
+Merges the contents of C<Subscribe1> into C<Subscribe2>.
+C<Subscribe2> is another instance of the same message type.
+
+=item B<$Subscribe2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Subscribe2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Subscribe-E<gt>clear()>
+
+Clears the contents of C<Subscribe>.
+
+=item B<$init = $Subscribe-E<gt>is_initialized()>
+
+Returns 1 if C<Subscribe> has been initialized with data.
+
+=item B<$errstr = $Subscribe-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Subscribe-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Subscribe>.
+
+=item B<$dstr = $Subscribe-E<gt>debug_string()>
+
+Returns a string representation of C<Subscribe>.
+
+=item B<$dstr = $Subscribe-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Subscribe>.
+
+=item B<$ok = $Subscribe-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Subscribe>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Subscribe-E<gt>pack()>
+
+Serializes C<Subscribe> into C<string>.
+
+=item B<$length = $Subscribe-E<gt>length()>
+
+Returns the serialized length of C<Subscribe>.
+
+=item B<@fields = $Subscribe-E<gt>fields()>
+
+Returns the defined fields of C<Subscribe>.
+
+=item B<$hashref = $Subscribe-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Subscribe-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Subscribe> is set, 0 otherwise.
+
+=item B<$Subscribe-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Subscribe>.
+
+=item B<$action_id = $Subscribe-E<gt>action_id()>
+
+Returns C<action_id> from C<Subscribe>.  C<action_id> will be a string.
+
+=item B<$Subscribe-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Subscribe> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination = $Subscribe-E<gt>has_destination()>
+
+Returns 1 if the C<destination> element of C<Subscribe> is set, 0 otherwise.
+
+=item B<$Subscribe-E<gt>clear_destination()>
+
+Clears the C<destination> element(s) of C<Subscribe>.
+
+=item B<$destination = $Subscribe-E<gt>destination()>
+
+Returns C<destination> from C<Subscribe>.  C<destination> will be a string.
+
+=item B<$Subscribe-E<gt>set_destination($value)>
+
+Sets the value of C<destination> in C<Subscribe> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination_type = $Subscribe-E<gt>has_destination_type()>
+
+Returns 1 if the C<destination_type> element of C<Subscribe> is set, 0 otherwise.
+
+=item B<$Subscribe-E<gt>clear_destination_type()>
+
+Clears the C<destination_type> element(s) of C<Subscribe>.
+
+=item B<$destination_type = $Subscribe-E<gt>destination_type()>
+
+Returns C<destination_type> from C<Subscribe>.  C<destination_type> will be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+=item B<$Subscribe-E<gt>set_destination_type($value)>
+
+Sets the value of C<destination_type> in C<Subscribe> to C<value>.  C<value> must be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Unsubscribe Constructor
+
+=over 4
+
+=item B<$Unsubscribe = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Unsubscribe-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Unsubscribe>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Unsubscribe Methods
+
+=over 4
+
+=item B<$Unsubscribe2-E<gt>copy_from($Unsubscribe1)>
+
+Copies the contents of C<Unsubscribe1> into C<Unsubscribe2>.
+C<Unsubscribe2> is another instance of the same message type.
+
+=item B<$Unsubscribe2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Unsubscribe2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Unsubscribe2-E<gt>merge_from($Unsubscribe1)>
+
+Merges the contents of C<Unsubscribe1> into C<Unsubscribe2>.
+C<Unsubscribe2> is another instance of the same message type.
+
+=item B<$Unsubscribe2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Unsubscribe2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Unsubscribe-E<gt>clear()>
+
+Clears the contents of C<Unsubscribe>.
+
+=item B<$init = $Unsubscribe-E<gt>is_initialized()>
+
+Returns 1 if C<Unsubscribe> has been initialized with data.
+
+=item B<$errstr = $Unsubscribe-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Unsubscribe-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Unsubscribe>.
+
+=item B<$dstr = $Unsubscribe-E<gt>debug_string()>
+
+Returns a string representation of C<Unsubscribe>.
+
+=item B<$dstr = $Unsubscribe-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Unsubscribe>.
+
+=item B<$ok = $Unsubscribe-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Unsubscribe>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Unsubscribe-E<gt>pack()>
+
+Serializes C<Unsubscribe> into C<string>.
+
+=item B<$length = $Unsubscribe-E<gt>length()>
+
+Returns the serialized length of C<Unsubscribe>.
+
+=item B<@fields = $Unsubscribe-E<gt>fields()>
+
+Returns the defined fields of C<Unsubscribe>.
+
+=item B<$hashref = $Unsubscribe-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Unsubscribe-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Unsubscribe> is set, 0 otherwise.
+
+=item B<$Unsubscribe-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Unsubscribe>.
+
+=item B<$action_id = $Unsubscribe-E<gt>action_id()>
+
+Returns C<action_id> from C<Unsubscribe>.  C<action_id> will be a string.
+
+=item B<$Unsubscribe-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Unsubscribe> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination = $Unsubscribe-E<gt>has_destination()>
+
+Returns 1 if the C<destination> element of C<Unsubscribe> is set, 0 otherwise.
+
+=item B<$Unsubscribe-E<gt>clear_destination()>
+
+Clears the C<destination> element(s) of C<Unsubscribe>.
+
+=item B<$destination = $Unsubscribe-E<gt>destination()>
+
+Returns C<destination> from C<Unsubscribe>.  C<destination> will be a string.
+
+=item B<$Unsubscribe-E<gt>set_destination($value)>
+
+Sets the value of C<destination> in C<Unsubscribe> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination_type = $Unsubscribe-E<gt>has_destination_type()>
+
+Returns 1 if the C<destination_type> element of C<Unsubscribe> is set, 0 otherwise.
+
+=item B<$Unsubscribe-E<gt>clear_destination_type()>
+
+Clears the C<destination_type> element(s) of C<Unsubscribe>.
+
+=item B<$destination_type = $Unsubscribe-E<gt>destination_type()>
+
+Returns C<destination_type> from C<Unsubscribe>.  C<destination_type> will be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+=item B<$Unsubscribe-E<gt>set_destination_type($value)>
+
+Sets the value of C<destination_type> in C<Unsubscribe> to C<value>.  C<value> must be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Notification Constructor
+
+=over 4
+
+=item B<$Notification = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Notification-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Notification>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Notification Methods
+
+=over 4
+
+=item B<$Notification2-E<gt>copy_from($Notification1)>
+
+Copies the contents of C<Notification1> into C<Notification2>.
+C<Notification2> is another instance of the same message type.
+
+=item B<$Notification2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Notification2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Notification2-E<gt>merge_from($Notification1)>
+
+Merges the contents of C<Notification1> into C<Notification2>.
+C<Notification2> is another instance of the same message type.
+
+=item B<$Notification2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Notification2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Notification-E<gt>clear()>
+
+Clears the contents of C<Notification>.
+
+=item B<$init = $Notification-E<gt>is_initialized()>
+
+Returns 1 if C<Notification> has been initialized with data.
+
+=item B<$errstr = $Notification-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Notification-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Notification>.
+
+=item B<$dstr = $Notification-E<gt>debug_string()>
+
+Returns a string representation of C<Notification>.
+
+=item B<$dstr = $Notification-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Notification>.
+
+=item B<$ok = $Notification-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Notification>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Notification-E<gt>pack()>
+
+Serializes C<Notification> into C<string>.
+
+=item B<$length = $Notification-E<gt>length()>
+
+Returns the serialized length of C<Notification>.
+
+=item B<@fields = $Notification-E<gt>fields()>
+
+Returns the defined fields of C<Notification>.
+
+=item B<$hashref = $Notification-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_destination = $Notification-E<gt>has_destination()>
+
+Returns 1 if the C<destination> element of C<Notification> is set, 0 otherwise.
+
+=item B<$Notification-E<gt>clear_destination()>
+
+Clears the C<destination> element(s) of C<Notification>.
+
+=item B<$destination = $Notification-E<gt>destination()>
+
+Returns C<destination> from C<Notification>.  C<destination> will be a string.
+
+=item B<$Notification-E<gt>set_destination($value)>
+
+Sets the value of C<destination> in C<Notification> to C<value>.  C<value> must be a string.
+
+=item B<$has_subscription = $Notification-E<gt>has_subscription()>
+
+Returns 1 if the C<subscription> element of C<Notification> is set, 0 otherwise.
+
+=item B<$Notification-E<gt>clear_subscription()>
+
+Clears the C<subscription> element(s) of C<Notification>.
+
+=item B<$subscription = $Notification-E<gt>subscription()>
+
+Returns C<subscription> from C<Notification>.  C<subscription> will be a string.
+
+=item B<$Notification-E<gt>set_subscription($value)>
+
+Sets the value of C<subscription> in C<Notification> to C<value>.  C<value> must be a string.
+
+=item B<$has_destination_type = $Notification-E<gt>has_destination_type()>
+
+Returns 1 if the C<destination_type> element of C<Notification> is set, 0 otherwise.
+
+=item B<$Notification-E<gt>clear_destination_type()>
+
+Clears the C<destination_type> element(s) of C<Notification>.
+
+=item B<$destination_type = $Notification-E<gt>destination_type()>
+
+Returns C<destination_type> from C<Notification>.  C<destination_type> will be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+=item B<$Notification-E<gt>set_destination_type($value)>
+
+Sets the value of C<destination_type> in C<Notification> to C<value>.  C<value> must be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::DestinationType.
+
+=item B<$has_message = $Notification-E<gt>has_message()>
+
+Returns 1 if the C<message> element of C<Notification> is set, 0 otherwise.
+
+=item B<$Notification-E<gt>clear_message()>
+
+Clears the C<message> element(s) of C<Notification>.
+
+=item B<$message = $Notification-E<gt>message()>
+
+Returns C<message> from C<Notification>.  C<message> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage.
+
+=item B<$Notification-E<gt>set_message($value)>
+
+Sets the value of C<message> in C<Notification> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::BrokerMessage.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Fault Constructor
+
+=over 4
+
+=item B<$Fault = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Fault-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Fault>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Fault Methods
+
+=over 4
+
+=item B<$Fault2-E<gt>copy_from($Fault1)>
+
+Copies the contents of C<Fault1> into C<Fault2>.
+C<Fault2> is another instance of the same message type.
+
+=item B<$Fault2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Fault2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Fault2-E<gt>merge_from($Fault1)>
+
+Merges the contents of C<Fault1> into C<Fault2>.
+C<Fault2> is another instance of the same message type.
+
+=item B<$Fault2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Fault2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Fault-E<gt>clear()>
+
+Clears the contents of C<Fault>.
+
+=item B<$init = $Fault-E<gt>is_initialized()>
+
+Returns 1 if C<Fault> has been initialized with data.
+
+=item B<$errstr = $Fault-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Fault-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Fault>.
+
+=item B<$dstr = $Fault-E<gt>debug_string()>
+
+Returns a string representation of C<Fault>.
+
+=item B<$dstr = $Fault-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Fault>.
+
+=item B<$ok = $Fault-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Fault>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Fault-E<gt>pack()>
+
+Serializes C<Fault> into C<string>.
+
+=item B<$length = $Fault-E<gt>length()>
+
+Returns the serialized length of C<Fault>.
+
+=item B<@fields = $Fault-E<gt>fields()>
+
+Returns the defined fields of C<Fault>.
+
+=item B<$hashref = $Fault-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Fault-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Fault> is set, 0 otherwise.
+
+=item B<$Fault-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Fault>.
+
+=item B<$action_id = $Fault-E<gt>action_id()>
+
+Returns C<action_id> from C<Fault>.  C<action_id> will be a string.
+
+=item B<$Fault-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Fault> to C<value>.  C<value> must be a string.
+
+=item B<$has_fault_code = $Fault-E<gt>has_fault_code()>
+
+Returns 1 if the C<fault_code> element of C<Fault> is set, 0 otherwise.
+
+=item B<$Fault-E<gt>clear_fault_code()>
+
+Clears the C<fault_code> element(s) of C<Fault>.
+
+=item B<$fault_code = $Fault-E<gt>fault_code()>
+
+Returns C<fault_code> from C<Fault>.  C<fault_code> will be a string.
+
+=item B<$Fault-E<gt>set_fault_code($value)>
+
+Sets the value of C<fault_code> in C<Fault> to C<value>.  C<value> must be a string.
+
+=item B<$has_fault_message = $Fault-E<gt>has_fault_message()>
+
+Returns 1 if the C<fault_message> element of C<Fault> is set, 0 otherwise.
+
+=item B<$Fault-E<gt>clear_fault_message()>
+
+Clears the C<fault_message> element(s) of C<Fault>.
+
+=item B<$fault_message = $Fault-E<gt>fault_message()>
+
+Returns C<fault_message> from C<Fault>.  C<fault_message> will be a string.
+
+=item B<$Fault-E<gt>set_fault_message($value)>
+
+Sets the value of C<fault_message> in C<Fault> to C<value>.  C<value> must be a string.
+
+=item B<$has_fault_detail = $Fault-E<gt>has_fault_detail()>
+
+Returns 1 if the C<fault_detail> element of C<Fault> is set, 0 otherwise.
+
+=item B<$Fault-E<gt>clear_fault_detail()>
+
+Clears the C<fault_detail> element(s) of C<Fault>.
+
+=item B<$fault_detail = $Fault-E<gt>fault_detail()>
+
+Returns C<fault_detail> from C<Fault>.  C<fault_detail> will be a string.
+
+=item B<$Fault-E<gt>set_fault_detail($value)>
+
+Sets the value of C<fault_detail> in C<Fault> to C<value>.  C<value> must be a string.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Ping Constructor
+
+=over 4
+
+=item B<$Ping = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Ping-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Ping>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Ping Methods
+
+=over 4
+
+=item B<$Ping2-E<gt>copy_from($Ping1)>
+
+Copies the contents of C<Ping1> into C<Ping2>.
+C<Ping2> is another instance of the same message type.
+
+=item B<$Ping2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Ping2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Ping2-E<gt>merge_from($Ping1)>
+
+Merges the contents of C<Ping1> into C<Ping2>.
+C<Ping2> is another instance of the same message type.
+
+=item B<$Ping2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Ping2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Ping-E<gt>clear()>
+
+Clears the contents of C<Ping>.
+
+=item B<$init = $Ping-E<gt>is_initialized()>
+
+Returns 1 if C<Ping> has been initialized with data.
+
+=item B<$errstr = $Ping-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Ping-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Ping>.
+
+=item B<$dstr = $Ping-E<gt>debug_string()>
+
+Returns a string representation of C<Ping>.
+
+=item B<$dstr = $Ping-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Ping>.
+
+=item B<$ok = $Ping-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Ping>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Ping-E<gt>pack()>
+
+Serializes C<Ping> into C<string>.
+
+=item B<$length = $Ping-E<gt>length()>
+
+Returns the serialized length of C<Ping>.
+
+=item B<@fields = $Ping-E<gt>fields()>
+
+Returns the defined fields of C<Ping>.
+
+=item B<$hashref = $Ping-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Ping-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Ping> is set, 0 otherwise.
+
+=item B<$Ping-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Ping>.
+
+=item B<$action_id = $Ping-E<gt>action_id()>
+
+Returns C<action_id> from C<Ping>.  C<action_id> will be a string.
+
+=item B<$Ping-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Ping> to C<value>.  C<value> must be a string.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Pong Constructor
+
+=over 4
+
+=item B<$Pong = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Pong-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Pong>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Pong Methods
+
+=over 4
+
+=item B<$Pong2-E<gt>copy_from($Pong1)>
+
+Copies the contents of C<Pong1> into C<Pong2>.
+C<Pong2> is another instance of the same message type.
+
+=item B<$Pong2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Pong2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Pong2-E<gt>merge_from($Pong1)>
+
+Merges the contents of C<Pong1> into C<Pong2>.
+C<Pong2> is another instance of the same message type.
+
+=item B<$Pong2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Pong2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Pong-E<gt>clear()>
+
+Clears the contents of C<Pong>.
+
+=item B<$init = $Pong-E<gt>is_initialized()>
+
+Returns 1 if C<Pong> has been initialized with data.
+
+=item B<$errstr = $Pong-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Pong-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Pong>.
+
+=item B<$dstr = $Pong-E<gt>debug_string()>
+
+Returns a string representation of C<Pong>.
+
+=item B<$dstr = $Pong-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Pong>.
+
+=item B<$ok = $Pong-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Pong>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Pong-E<gt>pack()>
+
+Serializes C<Pong> into C<string>.
+
+=item B<$length = $Pong-E<gt>length()>
+
+Returns the serialized length of C<Pong>.
+
+=item B<@fields = $Pong-E<gt>fields()>
+
+Returns the defined fields of C<Pong>.
+
+=item B<$hashref = $Pong-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Pong-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Pong> is set, 0 otherwise.
+
+=item B<$Pong-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Pong>.
+
+=item B<$action_id = $Pong-E<gt>action_id()>
+
+Returns C<action_id> from C<Pong>.  C<action_id> will be a string.
+
+=item B<$Pong-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Pong> to C<value>.  C<value> must be a string.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Authentication Constructor
+
+=over 4
+
+=item B<$Authentication = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Authentication-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Authentication>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Authentication Methods
+
+=over 4
+
+=item B<$Authentication2-E<gt>copy_from($Authentication1)>
+
+Copies the contents of C<Authentication1> into C<Authentication2>.
+C<Authentication2> is another instance of the same message type.
+
+=item B<$Authentication2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Authentication2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Authentication2-E<gt>merge_from($Authentication1)>
+
+Merges the contents of C<Authentication1> into C<Authentication2>.
+C<Authentication2> is another instance of the same message type.
+
+=item B<$Authentication2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Authentication2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Authentication-E<gt>clear()>
+
+Clears the contents of C<Authentication>.
+
+=item B<$init = $Authentication-E<gt>is_initialized()>
+
+Returns 1 if C<Authentication> has been initialized with data.
+
+=item B<$errstr = $Authentication-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Authentication-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Authentication>.
+
+=item B<$dstr = $Authentication-E<gt>debug_string()>
+
+Returns a string representation of C<Authentication>.
+
+=item B<$dstr = $Authentication-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Authentication>.
+
+=item B<$ok = $Authentication-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Authentication>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Authentication-E<gt>pack()>
+
+Serializes C<Authentication> into C<string>.
+
+=item B<$length = $Authentication-E<gt>length()>
+
+Returns the serialized length of C<Authentication>.
+
+=item B<@fields = $Authentication-E<gt>fields()>
+
+Returns the defined fields of C<Authentication>.
+
+=item B<$hashref = $Authentication-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_action_id = $Authentication-E<gt>has_action_id()>
+
+Returns 1 if the C<action_id> element of C<Authentication> is set, 0 otherwise.
+
+=item B<$Authentication-E<gt>clear_action_id()>
+
+Clears the C<action_id> element(s) of C<Authentication>.
+
+=item B<$action_id = $Authentication-E<gt>action_id()>
+
+Returns C<action_id> from C<Authentication>.  C<action_id> will be a string.
+
+=item B<$Authentication-E<gt>set_action_id($value)>
+
+Sets the value of C<action_id> in C<Authentication> to C<value>.  C<value> must be a string.
+
+=item B<$has_authentication_type = $Authentication-E<gt>has_authentication_type()>
+
+Returns 1 if the C<authentication_type> element of C<Authentication> is set, 0 otherwise.
+
+=item B<$Authentication-E<gt>clear_authentication_type()>
+
+Clears the C<authentication_type> element(s) of C<Authentication>.
+
+=item B<$authentication_type = $Authentication-E<gt>authentication_type()>
+
+Returns C<authentication_type> from C<Authentication>.  C<authentication_type> will be a string.
+
+=item B<$Authentication-E<gt>set_authentication_type($value)>
+
+Sets the value of C<authentication_type> in C<Authentication> to C<value>.  C<value> must be a string.
+
+=item B<$has_token = $Authentication-E<gt>has_token()>
+
+Returns 1 if the C<token> element of C<Authentication> is set, 0 otherwise.
+
+=item B<$Authentication-E<gt>clear_token()>
+
+Clears the C<token> element(s) of C<Authentication>.
+
+=item B<$token = $Authentication-E<gt>token()>
+
+Returns C<token> from C<Authentication>.  C<token> will be a string.
+
+=item B<$Authentication-E<gt>set_token($value)>
+
+Sets the value of C<token> in C<Authentication> to C<value>.  C<value> must be a string.
+
+=item B<$has_user_id = $Authentication-E<gt>has_user_id()>
+
+Returns 1 if the C<user_id> element of C<Authentication> is set, 0 otherwise.
+
+=item B<$Authentication-E<gt>clear_user_id()>
+
+Clears the C<user_id> element(s) of C<Authentication>.
+
+=item B<$user_id = $Authentication-E<gt>user_id()>
+
+Returns C<user_id> from C<Authentication>.  C<user_id> will be a string.
+
+=item B<$Authentication-E<gt>set_user_id($value)>
+
+Sets the value of C<user_id> in C<Authentication> to C<value>.  C<value> must be a string.
+
+=item B<$role_size = $Authentication-E<gt>role_size()>
+
+Returns the number of C<role> elements present in C<Authentication>.
+
+=item B<$Authentication-E<gt>clear_role()>
+
+Clears the C<role> element(s) of C<Authentication>.
+
+=item B<@role_list = $Authentication-E<gt>role()>
+
+Returns all values of C<role> in an array.  Each element of C<role_list> will be a string.
+
+=item B<$role_elem = $Authentication-E<gt>role($index)>
+
+Returns C<role> element C<index> from C<Authentication>.  C<role> will be a string, unless C<index> is out of range, in which case it will be undef.
+
+=item B<$Authentication-E<gt>add_role($value)>
+
+Adds C<value> to the list of C<role> in C<Authentication>.  C<value> must be a string.
+
+
+=back
+
+=head1 C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action::ActionType> values
+
+=over 4
+
+=item B<PUBLISH>
+
+This constant has a value of 0.
+
+=item B<POLL>
+
+This constant has a value of 1.
+
+=item B<ACCEPTED>
+
+This constant has a value of 2.
+
+=item B<ACKNOWLEDGE_MESSAGE>
+
+This constant has a value of 3.
+
+=item B<SUBSCRIBE>
+
+This constant has a value of 4.
+
+=item B<UNSUBSCRIBE>
+
+This constant has a value of 5.
+
+=item B<NOTIFICATION>
+
+This constant has a value of 6.
+
+=item B<FAULT>
+
+This constant has a value of 7.
+
+=item B<PING>
+
+This constant has a value of 8.
+
+=item B<PONG>
+
+This constant has a value of 9.
+
+=item B<AUTH>
+
+This constant has a value of 10.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action Constructor
+
+=over 4
+
+=item B<$Action = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action Methods
+
+=over 4
+
+=item B<$Action2-E<gt>copy_from($Action1)>
+
+Copies the contents of C<Action1> into C<Action2>.
+C<Action2> is another instance of the same message type.
+
+=item B<$Action2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Action2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Action2-E<gt>merge_from($Action1)>
+
+Merges the contents of C<Action1> into C<Action2>.
+C<Action2> is another instance of the same message type.
+
+=item B<$Action2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Action2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Action-E<gt>clear()>
+
+Clears the contents of C<Action>.
+
+=item B<$init = $Action-E<gt>is_initialized()>
+
+Returns 1 if C<Action> has been initialized with data.
+
+=item B<$errstr = $Action-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Action-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Action>.
+
+=item B<$dstr = $Action-E<gt>debug_string()>
+
+Returns a string representation of C<Action>.
+
+=item B<$dstr = $Action-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Action>.
+
+=item B<$ok = $Action-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Action>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Action-E<gt>pack()>
+
+Serializes C<Action> into C<string>.
+
+=item B<$length = $Action-E<gt>length()>
+
+Returns the serialized length of C<Action>.
+
+=item B<@fields = $Action-E<gt>fields()>
+
+Returns the defined fields of C<Action>.
+
+=item B<$hashref = $Action-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_publish = $Action-E<gt>has_publish()>
+
+Returns 1 if the C<publish> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_publish()>
+
+Clears the C<publish> element(s) of C<Action>.
+
+=item B<$publish = $Action-E<gt>publish()>
+
+Returns C<publish> from C<Action>.  C<publish> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Publish.
+
+=item B<$Action-E<gt>set_publish($value)>
+
+Sets the value of C<publish> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Publish.
+
+=item B<$has_poll = $Action-E<gt>has_poll()>
+
+Returns 1 if the C<poll> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_poll()>
+
+Clears the C<poll> element(s) of C<Action>.
+
+=item B<$poll = $Action-E<gt>poll()>
+
+Returns C<poll> from C<Action>.  C<poll> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Poll.
+
+=item B<$Action-E<gt>set_poll($value)>
+
+Sets the value of C<poll> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Poll.
+
+=item B<$has_accepted = $Action-E<gt>has_accepted()>
+
+Returns 1 if the C<accepted> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_accepted()>
+
+Clears the C<accepted> element(s) of C<Action>.
+
+=item B<$accepted = $Action-E<gt>accepted()>
+
+Returns C<accepted> from C<Action>.  C<accepted> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Accepted.
+
+=item B<$Action-E<gt>set_accepted($value)>
+
+Sets the value of C<accepted> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Accepted.
+
+=item B<$has_ack_message = $Action-E<gt>has_ack_message()>
+
+Returns 1 if the C<ack_message> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_ack_message()>
+
+Clears the C<ack_message> element(s) of C<Action>.
+
+=item B<$ack_message = $Action-E<gt>ack_message()>
+
+Returns C<ack_message> from C<Action>.  C<ack_message> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::AcknowledgeMessage.
+
+=item B<$Action-E<gt>set_ack_message($value)>
+
+Sets the value of C<ack_message> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::AcknowledgeMessage.
+
+=item B<$has_subscribe = $Action-E<gt>has_subscribe()>
+
+Returns 1 if the C<subscribe> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_subscribe()>
+
+Clears the C<subscribe> element(s) of C<Action>.
+
+=item B<$subscribe = $Action-E<gt>subscribe()>
+
+Returns C<subscribe> from C<Action>.  C<subscribe> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Subscribe.
+
+=item B<$Action-E<gt>set_subscribe($value)>
+
+Sets the value of C<subscribe> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Subscribe.
+
+=item B<$has_unsubscribe = $Action-E<gt>has_unsubscribe()>
+
+Returns 1 if the C<unsubscribe> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_unsubscribe()>
+
+Clears the C<unsubscribe> element(s) of C<Action>.
+
+=item B<$unsubscribe = $Action-E<gt>unsubscribe()>
+
+Returns C<unsubscribe> from C<Action>.  C<unsubscribe> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Unsubscribe.
+
+=item B<$Action-E<gt>set_unsubscribe($value)>
+
+Sets the value of C<unsubscribe> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Unsubscribe.
+
+=item B<$has_notification = $Action-E<gt>has_notification()>
+
+Returns 1 if the C<notification> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_notification()>
+
+Clears the C<notification> element(s) of C<Action>.
+
+=item B<$notification = $Action-E<gt>notification()>
+
+Returns C<notification> from C<Action>.  C<notification> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Notification.
+
+=item B<$Action-E<gt>set_notification($value)>
+
+Sets the value of C<notification> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Notification.
+
+=item B<$has_fault = $Action-E<gt>has_fault()>
+
+Returns 1 if the C<fault> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_fault()>
+
+Clears the C<fault> element(s) of C<Action>.
+
+=item B<$fault = $Action-E<gt>fault()>
+
+Returns C<fault> from C<Action>.  C<fault> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Fault.
+
+=item B<$Action-E<gt>set_fault($value)>
+
+Sets the value of C<fault> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Fault.
+
+=item B<$has_ping = $Action-E<gt>has_ping()>
+
+Returns 1 if the C<ping> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_ping()>
+
+Clears the C<ping> element(s) of C<Action>.
+
+=item B<$ping = $Action-E<gt>ping()>
+
+Returns C<ping> from C<Action>.  C<ping> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Ping.
+
+=item B<$Action-E<gt>set_ping($value)>
+
+Sets the value of C<ping> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Ping.
+
+=item B<$has_pong = $Action-E<gt>has_pong()>
+
+Returns 1 if the C<pong> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_pong()>
+
+Clears the C<pong> element(s) of C<Action>.
+
+=item B<$pong = $Action-E<gt>pong()>
+
+Returns C<pong> from C<Action>.  C<pong> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Pong.
+
+=item B<$Action-E<gt>set_pong($value)>
+
+Sets the value of C<pong> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Pong.
+
+=item B<$has_auth = $Action-E<gt>has_auth()>
+
+Returns 1 if the C<auth> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_auth()>
+
+Clears the C<auth> element(s) of C<Action>.
+
+=item B<$auth = $Action-E<gt>auth()>
+
+Returns C<auth> from C<Action>.  C<auth> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Authentication.
+
+=item B<$Action-E<gt>set_auth($value)>
+
+Sets the value of C<auth> in C<Action> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Authentication.
+
+=item B<$has_action_type = $Action-E<gt>has_action_type()>
+
+Returns 1 if the C<action_type> element of C<Action> is set, 0 otherwise.
+
+=item B<$Action-E<gt>clear_action_type()>
+
+Clears the C<action_type> element(s) of C<Action>.
+
+=item B<$action_type = $Action-E<gt>action_type()>
+
+Returns C<action_type> from C<Action>.  C<action_type> will be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action::ActionType.
+
+=item B<$Action-E<gt>set_action_type($value)>
+
+Sets the value of C<action_type> in C<Action> to C<value>.  C<value> must be a value of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action::ActionType.
+
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom Constructor
+
+=over 4
+
+=item B<$Atom = SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom-E<gt>new( [$arg] )>
+
+Constructs an instance of C<SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom>.  If a hashref argument
+is supplied, it is copied into the message instance as if
+the copy_from() method were called immediately after
+construction.  Otherwise, if a scalar argument is supplied,
+it is interpreted as a serialized instance of the message
+type, and the scalar is parsed to populate the message
+fields.  Otherwise, if no argument is supplied, an empty
+message instance is constructed.
+
+=back
+
+=head1 SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom Methods
+
+=over 4
+
+=item B<$Atom2-E<gt>copy_from($Atom1)>
+
+Copies the contents of C<Atom1> into C<Atom2>.
+C<Atom2> is another instance of the same message type.
+
+=item B<$Atom2-E<gt>copy_from($hashref)>
+
+Copies the contents of C<hashref> into C<Atom2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Atom2-E<gt>merge_from($Atom1)>
+
+Merges the contents of C<Atom1> into C<Atom2>.
+C<Atom2> is another instance of the same message type.
+
+=item B<$Atom2-E<gt>merge_from($hashref)>
+
+Merges the contents of C<hashref> into C<Atom2>.
+C<hashref> is a Data::Dumper-style representation of an
+instance of the message type.
+
+=item B<$Atom-E<gt>clear()>
+
+Clears the contents of C<Atom>.
+
+=item B<$init = $Atom-E<gt>is_initialized()>
+
+Returns 1 if C<Atom> has been initialized with data.
+
+=item B<$errstr = $Atom-E<gt>error_string()>
+
+Returns a comma-delimited string of initialization errors.
+
+=item B<$Atom-E<gt>discard_unknown_fields()>
+
+Discards unknown fields from C<Atom>.
+
+=item B<$dstr = $Atom-E<gt>debug_string()>
+
+Returns a string representation of C<Atom>.
+
+=item B<$dstr = $Atom-E<gt>short_debug_string()>
+
+Returns a short string representation of C<Atom>.
+
+=item B<$ok = $Atom-E<gt>unpack($string)>
+
+Attempts to parse C<string> into C<Atom>, returning 1 on success and 0 on failure.
+
+=item B<$string = $Atom-E<gt>pack()>
+
+Serializes C<Atom> into C<string>.
+
+=item B<$length = $Atom-E<gt>length()>
+
+Returns the serialized length of C<Atom>.
+
+=item B<@fields = $Atom-E<gt>fields()>
+
+Returns the defined fields of C<Atom>.
+
+=item B<$hashref = $Atom-E<gt>to_hashref()>
+
+Exports the message to a hashref suitable for use in the
+C<copy_from> or C<merge_from> methods.
+
+=item B<$has_header = $Atom-E<gt>has_header()>
+
+Returns 1 if the C<header> element of C<Atom> is set, 0 otherwise.
+
+=item B<$Atom-E<gt>clear_header()>
+
+Clears the C<header> element(s) of C<Atom>.
+
+=item B<$header = $Atom-E<gt>header()>
+
+Returns C<header> from C<Atom>.  C<header> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Header.
+
+=item B<$Atom-E<gt>set_header($value)>
+
+Sets the value of C<header> in C<Atom> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Header.
+
+=item B<$has_action = $Atom-E<gt>has_action()>
+
+Returns 1 if the C<action> element of C<Atom> is set, 0 otherwise.
+
+=item B<$Atom-E<gt>clear_action()>
+
+Clears the C<action> element(s) of C<Atom>.
+
+=item B<$action = $Atom-E<gt>action()>
+
+Returns C<action> from C<Atom>.  C<action> will be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action.
+
+=item B<$Atom-E<gt>set_action($value)>
+
+Sets the value of C<action> in C<Atom> to C<value>.  C<value> must be an instance of SAPO::Broker::Codecs::Autogen::ProtobufXS::Atom::Action.
+
+
+=back
+
+=head1 AUTHOR
+
+Generated from SAPO.Broker.Codecs.Autogen.ProtobufXS.Atom by the protoc compiler.
+
+=head1 SEE ALSO
+
+http://code.google.com/p/protobuf
+
+=cut
+

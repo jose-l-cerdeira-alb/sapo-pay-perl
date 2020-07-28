@@ -1,0 +1,11 @@
+/servers/pay/perl-5.32/bin/ptar
+/servers/pay/perl-5.32/bin/ptardiff
+/servers/pay/perl-5.32/bin/ptargrep
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Archive/Tar.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Archive/Tar/Constant.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Archive/Tar/File.pm
+/servers/pay/perl-5.32/man/man1/ptar.1
+/servers/pay/perl-5.32/man/man1/ptardiff.1
+/servers/pay/perl-5.32/man/man1/ptargrep.1
+/servers/pay/perl-5.32/man/man3/Archive::Tar.3
+/servers/pay/perl-5.32/man/man3/Archive::Tar::File.3

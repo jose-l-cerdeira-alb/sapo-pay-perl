@@ -1,0 +1,10 @@
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/HTTP/Entity/Parser.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/HTTP/Entity/Parser/JSON.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/HTTP/Entity/Parser/MultiPart.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/HTTP/Entity/Parser/OctetStream.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/HTTP/Entity/Parser/UrlEncoded.pm
+/servers/pay/perl-5.32/man/man3/HTTP::Entity::Parser.3
+/servers/pay/perl-5.32/man/man3/HTTP::Entity::Parser::JSON.3
+/servers/pay/perl-5.32/man/man3/HTTP::Entity::Parser::MultiPart.3
+/servers/pay/perl-5.32/man/man3/HTTP::Entity::Parser::OctetStream.3
+/servers/pay/perl-5.32/man/man3/HTTP::Entity::Parser::UrlEncoded.3

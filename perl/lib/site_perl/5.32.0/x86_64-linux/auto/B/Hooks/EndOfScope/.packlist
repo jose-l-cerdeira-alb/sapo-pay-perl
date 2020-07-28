@@ -1,0 +1,8 @@
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/B/Hooks/EndOfScope.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/B/Hooks/EndOfScope/PP.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/B/Hooks/EndOfScope/PP/FieldHash.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/B/Hooks/EndOfScope/PP/HintHash.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/B/Hooks/EndOfScope/XS.pm
+/servers/pay/perl-5.32/man/man3/B::Hooks::EndOfScope.3
+/servers/pay/perl-5.32/man/man3/B::Hooks::EndOfScope::PP.3
+/servers/pay/perl-5.32/man/man3/B::Hooks::EndOfScope::XS.3

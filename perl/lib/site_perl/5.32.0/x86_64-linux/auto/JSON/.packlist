@@ -1,0 +1,10 @@
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/JSON.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/JSON/backportPP.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/JSON/backportPP/Boolean.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/JSON/backportPP/Compat5005.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/JSON/backportPP/Compat5006.pm
+/servers/pay/perl-5.32/man/man3/JSON.3
+/servers/pay/perl-5.32/man/man3/JSON::backportPP.3
+/servers/pay/perl-5.32/man/man3/JSON::backportPP::Boolean.3
+/servers/pay/perl-5.32/man/man3/JSON::backportPP::Compat5005.3
+/servers/pay/perl-5.32/man/man3/JSON::backportPP::Compat5006.3

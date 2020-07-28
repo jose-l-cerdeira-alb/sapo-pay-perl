@@ -1,0 +1,10 @@
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/BinaryProtocol.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/BufferedTransport.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/FramedTransport.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/HttpClient.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/MemoryBuffer.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/Protocol.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/Server.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/Socket.pm
+/servers/pay/perl-5.32/lib/site_perl/5.32.0/Thrift/Transport.pm
