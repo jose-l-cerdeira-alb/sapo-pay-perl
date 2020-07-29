@@ -6048,3 +6048,47 @@ C<EXE_FILES: >
 
 =back
 
+=head2 Wed Jul 29 15:42:01 2020: C<Module> L<Test::More::UTF8|Test::More::UTF8>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.32/lib/site_perl/5.32.0>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.05>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Wed Jul 29 15:42:10 2020: C<Module> L<Text::Template|Text::Template>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.32/lib/site_perl/5.32.0>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.59>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
