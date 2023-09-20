@@ -68,78 +68,16 @@
 .    \}
 .\}
 .rr rF
-.\"
-.\" Accent mark definitions (@(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2).
-.\" Fear.  Run.  Save yourself.  No user-serviceable parts.
-.    \" fudge factors for nroff and troff
-.if n \{\
-.    ds #H 0
-.    ds #V .8m
-.    ds #F .3m
-.    ds #[ \f1
-.    ds #] \fP
-.\}
-.if t \{\
-.    ds #H ((1u-(\\\\n(.fu%2u))*.13m)
-.    ds #V .6m
-.    ds #F 0
-.    ds #[ \&
-.    ds #] \&
-.\}
-.    \" simple accents for nroff and troff
-.if n \{\
-.    ds ' \&
-.    ds ` \&
-.    ds ^ \&
-.    ds , \&
-.    ds ~ ~
-.    ds /
-.\}
-.if t \{\
-.    ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
-.    ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
-.    ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
-.    ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
-.    ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
-.    ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
-.\}
-.    \" troff and (daisy-wheel) nroff accents
-.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
-.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
-.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
-.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
-.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
-.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
-.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
-.ds ae a\h'-(\w'a'u*4/10)'e
-.ds Ae A\h'-(\w'A'u*4/10)'E
-.    \" corrections for vroff
-.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
-.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
-.    \" for low resolution devices (crt and lpr)
-.if \n(.H>23 .if \n(.V>19 \
-\{\
-.    ds : e
-.    ds 8 ss
-.    ds o a
-.    ds d- d\h'-1'\(ga
-.    ds D- D\h'-1'\(hy
-.    ds th \o'bp'
-.    ds Th \o'LP'
-.    ds ae ae
-.    ds Ae AE
-.\}
-.rm #[ #] #H #V #F C
 .\" ========================================================================
 .\"
 .IX Title "Math::BigFloat 3"
-.TH Math::BigFloat 3 "2020-06-14" "perl v5.32.0" "Perl Programmers Reference Guide"
+.TH Math::BigFloat 3 "2023-03-31" "perl v5.32.0" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
 .nh
 .SH "NAME"
-Math::BigFloat \- Arbitrary size floating point math package
+Math::BigFloat \- arbitrary size floating point math package
 .SH "SYNOPSIS"
 .IX Header "SYNOPSIS"
 .Vb 1
@@ -162,10 +100,13 @@ Math::BigFloat \- Arbitrary size floating point math package
 \&
 \&  $x = Math::BigFloat\->new($str);               # defaults to 0
 \&  $x = Math::BigFloat\->new(\*(Aq0x123\*(Aq);            # from hexadecimal
+\&  $x = Math::BigFloat\->new(\*(Aq0o377\*(Aq);            # from octal
 \&  $x = Math::BigFloat\->new(\*(Aq0b101\*(Aq);            # from binary
 \&  $x = Math::BigFloat\->from_hex(\*(Aq0xc.afep+3\*(Aq);  # from hex
 \&  $x = Math::BigFloat\->from_hex(\*(Aqcafe\*(Aq);        # ditto
 \&  $x = Math::BigFloat\->from_oct(\*(Aq1.3267p\-4\*(Aq);   # from octal
+\&  $x = Math::BigFloat\->from_oct(\*(Aq01.3267p\-4\*(Aq);  # ditto
+\&  $x = Math::BigFloat\->from_oct(\*(Aq0o1.3267p\-4\*(Aq); # ditto
 \&  $x = Math::BigFloat\->from_oct(\*(Aq0377\*(Aq);        # ditto
 \&  $x = Math::BigFloat\->from_bin(\*(Aq0b1.1001p\-4\*(Aq); # from binary
 \&  $x = Math::BigFloat\->from_bin(\*(Aq0101\*(Aq);        # ditto
@@ -180,6 +121,8 @@ Math::BigFloat \- Arbitrary size floating point math package
 \&
 \&  $y = $x\->copy();        # make a copy (unlike $y = $x)
 \&  $y = $x\->as_int();      # return as BigInt
+\&  $y = $x\->as_float();    # return as a Math::BigFloat
+\&  $y = $x\->as_rat();      # return as a Math::BigRat
 \&
 \&  # Boolean methods (these don\*(Aqt modify the invocand)
 \&
@@ -290,6 +233,9 @@ Math::BigFloat \- Arbitrary size floating point math package
 \&  $x\->nparts();            # mantissa and exponent (normalised)
 \&  $x\->eparts();            # mantissa and exponent (engineering notation)
 \&  $x\->dparts();            # integer and fraction part
+\&  $x\->fparts();            # numerator and denominator
+\&  $x\->numerator();         # numerator
+\&  $x\->denominator();       # denominator
 \&
 \&  # Conversion methods (do not modify the invocand)
 \&
@@ -298,6 +244,8 @@ Math::BigFloat \- Arbitrary size floating point math package
 \&  $x\->bnstr();        # string in normalized notation
 \&  $x\->bestr();        # string in engineering notation
 \&  $x\->bdstr();        # string in decimal notation
+\&  $x\->bfstr();        # string in fractional notation
+\&
 \&  $x\->as_hex();       # as signed hexadecimal string with prefixed 0x
 \&  $x\->as_bin();       # as signed binary string with prefixed 0b
 \&  $x\->as_oct();       # as signed octal string with prefixed 0
@@ -324,41 +272,69 @@ exactly what you expect.
 .SS "Input"
 .IX Subsection "Input"
 Input values to these routines may be any scalar number or string that looks
-like a number and represents a floating point number.
+like a number. Anything that is accepted by Perl as a literal numeric constant
+should be accepted by this module.
 .IP "\(bu" 4
 Leading and trailing whitespace is ignored.
 .IP "\(bu" 4
-Leading and trailing zeros are ignored.
+Leading zeros are ignored, except for floating point numbers with a binary
+exponent, in which case the number is interpreted as an octal floating point
+number. For example, \*(L"01.4p+0\*(R" gives 1.5, \*(L"00.4p+0\*(R" gives 0.5, but \*(L"0.4p+0\*(R"
+gives a NaN. And while \*(L"0377\*(R" gives 255, \*(L"0377p0\*(R" gives 255.
 .IP "\(bu" 4
-If the string has a \*(L"0x\*(R" prefix, it is interpreted as a hexadecimal number.
+If the string has a \*(L"0x\*(R" or \*(L"0X\*(R" prefix, it is interpreted as a hexadecimal
+number.
 .IP "\(bu" 4
-If the string has a \*(L"0b\*(R" prefix, it is interpreted as a binary number.
+If the string has a \*(L"0o\*(R" or \*(L"0O\*(R" prefix, it is interpreted as an octal number. A
+floating point literal with a \*(L"0\*(R" prefix is also interpreted as an octal number.
 .IP "\(bu" 4
-For hexadecimal and binary numbers, the exponent must be separated from the
-significand (mantissa) by the letter \*(L"p\*(R" or \*(L"P\*(R", not \*(L"e\*(R" or \*(L"E\*(R" as with decimal
-numbers.
+If the string has a \*(L"0b\*(R" or \*(L"0B\*(R" prefix, it is interpreted as a binary number.
 .IP "\(bu" 4
-One underline is allowed between any two digits, including hexadecimal and
-binary digits.
+Underline characters are allowed in the same way as they are allowed in literal
+numerical constants.
 .IP "\(bu" 4
 If the string can not be interpreted, NaN is returned.
-.PP
-Octal numbers are typically prefixed by \*(L"0\*(R", but since leading zeros are
-stripped, these methods can not automatically recognize octal numbers, so use
-the constructor \fBfrom_oct()\fR to interpret octal strings.
+.IP "\(bu" 4
+For hexadecimal, octal, and binary floating point numbers, the exponent must be
+separated from the significand (mantissa) by the letter \*(L"p\*(R" or \*(L"P\*(R", not \*(L"e\*(R" or
+\&\*(L"E\*(R" as with decimal numbers.
 .PP
 Some examples of valid string input
 .PP
-.Vb 10
+.Vb 1
 \&    Input string                Resulting value
+\&
 \&    123                         123
 \&    1.23e2                      123
 \&    12300e\-2                    123
-\&    0xcafe                      51966
-\&    0b1101                      13
+\&
 \&    67_538_754                  67538754
 \&    \-4_5_6.7_8_9e+0_1_0         \-4567890000000
+\&
+\&    0x13a                       314
+\&    0x13ap0                     314
+\&    0x1.3ap+8                   314
+\&    0x0.00013ap+24              314
+\&    0x13a000p\-12                314
+\&
+\&    0o472                       314
+\&    0o1.164p+8                  314
+\&    0o0.0001164p+20             314
+\&    0o1164000p\-10               314
+\&
+\&    0472                        472     Note!
+\&    01.164p+8                   314
+\&    00.0001164p+20              314
+\&    01164000p\-10                314
+\&
+\&    0b100111010                 314
+\&    0b1.0011101p+8              314
+\&    0b0.00010011101p+12         314
+\&    0b100111010000p\-3           314
+\&
 \&    0x1.921fb5p+1               3.14159262180328369140625e+0
+\&    0o1.2677025p1               2.71828174591064453125
+\&    01.2677025p1                2.71828174591064453125
 \&    0b1.1001p\-4                 9.765625e\-2
 .Ve
 .SS "Output"
@@ -669,10 +645,11 @@ supplied to the operation after the \fIscale\fR:
 \&    $y = $x\->copy()\->bdiv(3,6);               # will also give 0.666667
 .Ve
 .PP
-Note that \f(CW\*(C`Math::BigFloat\->accuracy()\*(C'\fR and \f(CW\*(C`Math::BigFloat\->precision()\*(C'\fR
-set the global variables, and thus \fBany\fR newly created number will be subject
-to the global rounding \fBimmediately\fR. This means that in the examples above, the
-\&\f(CW3\fR as argument to \f(CW\*(C`bdiv()\*(C'\fR will also get an accuracy of \fB5\fR.
+Note that \f(CW\*(C`Math::BigFloat\->accuracy()\*(C'\fR and
+\&\f(CW\*(C`Math::BigFloat\->precision()\*(C'\fR set the global variables, and thus \fBany\fR
+newly created number will be subject to the global rounding \fBimmediately\fR. This
+means that in the examples above, the \f(CW3\fR as argument to \f(CW\*(C`bdiv()\*(C'\fR will also
+get an accuracy of \fB5\fR.
 .PP
 It is less confusing to either calculate the result fully, and afterwards
 round it explicitly, or use the additional parameters to the math
@@ -737,93 +714,125 @@ You can override this by passing the desired rounding mode as parameter to
 \&    $x = Math::BigFloat\->new(2.5);
 \&    $y = $x\->as_number(\*(Aqodd\*(Aq);      # $y = 3
 .Ve
-.SH "Autocreating constants"
-.IX Header "Autocreating constants"
-After \f(CW\*(C`use Math::BigFloat \*(Aq:constant\*(Aq\*(C'\fR all the floating point constants
-in the given scope are converted to \f(CW\*(C`Math::BigFloat\*(C'\fR. This conversion
-happens at compile time.
+.SH "NUMERIC LITERALS"
+.IX Header "NUMERIC LITERALS"
+After \f(CW\*(C`use Math::BigFloat \*(Aq:constant\*(Aq\*(C'\fR all numeric literals in the given scope
+are converted to \f(CW\*(C`Math::BigFloat\*(C'\fR objects. This conversion happens at compile
+time.
 .PP
-In particular
+For example,
 .PP
 .Vb 1
-\&    perl \-MMath::BigFloat=:constant \-e \*(Aqprint 2E\-100,"\en"\*(Aq
+\&    perl \-MMath::BigFloat=:constant \-le \*(Aqprint 2e\-150\*(Aq
 .Ve
 .PP
-prints the value of \f(CW\*(C`2E\-100\*(C'\fR. Note that without conversion of
-constants the expression 2E\-100 will be calculated as normal floating point
-number.
+prints the exact value of \f(CW\*(C`2e\-150\*(C'\fR. Note that without conversion of constants
+the expression \f(CW\*(C`2e\-150\*(C'\fR is calculated using Perl scalars, which leads to an
+inaccuracte result.
 .PP
-Please note that ':constant' does not affect integer constants, nor binary
-nor hexadecimal constants. Use bignum or Math::BigInt to get this to
-work.
+Note that strings are not affected, so that
+.PP
+.Vb 1
+\&    use Math::BigFloat qw/:constant/;
+\&
+\&    $y = "1234567890123456789012345678901234567890"
+\&            + "123456789123456789";
+.Ve
+.PP
+does not give you what you expect. You need an explicit Math::BigFloat\->\fBnew()\fR
+around at least one of the operands. You should also quote large constants to
+prevent loss of precision:
+.PP
+.Vb 1
+\&    use Math::BigFloat;
+\&
+\&    $x = Math::BigFloat\->new("1234567889123456789123456789123456789");
+.Ve
+.PP
+Without the quotes Perl converts the large number to a floating point constant
+at compile time, and then converts the result to a Math::BigFloat object at
+runtime, which results in an inaccurate result.
+.SS "Hexadecimal, octal, and binary floating point literals"
+.IX Subsection "Hexadecimal, octal, and binary floating point literals"
+Perl (and this module) accepts hexadecimal, octal, and binary floating point
+literals, but use them with care with Perl versions before v5.32.0, because some
+versions of Perl silently give the wrong result. Below are some examples of
+different ways to write the number decimal 314.
+.PP
+Hexadecimal floating point literals:
+.PP
+.Vb 3
+\&    0x1.3ap+8         0X1.3AP+8
+\&    0x1.3ap8          0X1.3AP8
+\&    0x13a0p\-4         0X13A0P\-4
+.Ve
+.PP
+Octal floating point literals (with \*(L"0\*(R" prefix):
+.PP
+.Vb 3
+\&    01.164p+8         01.164P+8
+\&    01.164p8          01.164P8
+\&    011640p\-4         011640P\-4
+.Ve
+.PP
+Octal floating point literals (with \*(L"0o\*(R" prefix) (requires v5.34.0):
+.PP
+.Vb 3
+\&    0o1.164p+8        0O1.164P+8
+\&    0o1.164p8         0O1.164P8
+\&    0o11640p\-4        0O11640P\-4
+.Ve
+.PP
+Binary floating point literals:
+.PP
+.Vb 3
+\&    0b1.0011101p+8    0B1.0011101P+8
+\&    0b1.0011101p8     0B1.0011101P8
+\&    0b10011101000p\-2  0B10011101000P\-2
+.Ve
 .SS "Math library"
 .IX Subsection "Math library"
 Math with the numbers is done (by default) by a module called
 Math::BigInt::Calc. This is equivalent to saying:
 .PP
 .Vb 1
-\&    use Math::BigFloat lib => \*(AqCalc\*(Aq;
+\&    use Math::BigFloat lib => "Calc";
 .Ve
 .PP
 You can change this by using:
 .PP
 .Vb 1
-\&    use Math::BigFloat lib => \*(AqGMP\*(Aq;
+\&    use Math::BigFloat lib => "GMP";
 .Ve
 .PP
-\&\fBNote\fR: General purpose packages should not be explicit about the library
-to use; let the script author decide which is best.
+\&\fBNote\fR: General purpose packages should not be explicit about the library to
+use; let the script author decide which is best.
 .PP
 Note: The keyword 'lib' will warn when the requested library could not be
 loaded. To suppress the warning use 'try' instead:
 .PP
 .Vb 1
-\&    use Math::BigFloat try => \*(AqGMP\*(Aq;
+\&    use Math::BigFloat try => "GMP";
 .Ve
 .PP
-If your script works with huge numbers and Calc is too slow for them,
-you can also for the loading of one of these libraries and if none
-of them can be used, the code will die:
+If your script works with huge numbers and Calc is too slow for them, you can
+also for the loading of one of these libraries and if none of them can be used,
+the code will die:
 .PP
 .Vb 1
-\&    use Math::BigFloat only => \*(AqGMP,Pari\*(Aq;
+\&    use Math::BigFloat only => "GMP,Pari";
 .Ve
 .PP
-The following would first try to find Math::BigInt::Foo, then
-Math::BigInt::Bar, and when this also fails, revert to Math::BigInt::Calc:
+The following would first try to find Math::BigInt::Foo, then Math::BigInt::Bar,
+and when this also fails, revert to Math::BigInt::Calc:
 .PP
 .Vb 1
-\&    use Math::BigFloat lib => \*(AqFoo,Math::BigInt::Bar\*(Aq;
+\&    use Math::BigFloat lib => "Foo,Math::BigInt::Bar";
 .Ve
 .PP
 See the respective low-level library documentation for further details.
 .PP
-Please note that Math::BigFloat does \fBnot\fR use the denoted library itself,
-but it merely passes the lib argument to Math::BigInt. So, instead of the need
-to do:
-.PP
-.Vb 2
-\&    use Math::BigInt lib => \*(AqGMP\*(Aq;
-\&    use Math::BigFloat;
-.Ve
-.PP
-you can roll it all into one line:
-.PP
-.Vb 1
-\&    use Math::BigFloat lib => \*(AqGMP\*(Aq;
-.Ve
-.PP
-It is also possible to just require Math::BigFloat:
-.PP
-.Vb 1
-\&    require Math::BigFloat;
-.Ve
-.PP
-This will load the necessary things (like BigInt) when they are needed, and
-automatically.
-.PP
-See Math::BigInt for more details than you ever wanted to know about using
-a different low-level library.
+See Math::BigInt for more details about using a different low-level library.
 .SS "Using Math::BigInt::Lite"
 .IX Subsection "Using Math::BigInt::Lite"
 For backwards compatibility reasons it is still possible to
@@ -837,7 +846,8 @@ However, this request is ignored, as the current code now uses the low-level
 math library for directly storing the number parts.
 .SH "EXPORTS"
 .IX Header "EXPORTS"
-\&\f(CW\*(C`Math::BigFloat\*(C'\fR exports nothing by default, but can export the \f(CW\*(C`bpi()\*(C'\fR method:
+\&\f(CW\*(C`Math::BigFloat\*(C'\fR exports nothing by default, but can export the \f(CW\*(C`bpi()\*(C'\fR
+method:
 .PP
 .Vb 1
 \&    use Math::BigFloat qw/bpi/;
@@ -919,7 +929,8 @@ a certain number of digits:
 \&    print $z\->precision(),"\en";             # 4
 .Ve
 .Sp
-Replacing \*(L"\fBprecision()\fR\*(R" with \*(L"\fBaccuracy()\fR\*(R" is probably not what you want, either:
+Replacing \*(L"\fBprecision()\fR\*(R" with \*(L"\fBaccuracy()\fR\*(R" is probably not what you want,
+either:
 .Sp
 .Vb 1
 \&    use Math::BigFloat;
@@ -954,8 +965,7 @@ influence any further operation.
 .IX Header "BUGS"
 Please report any bugs or feature requests to
 \&\f(CW\*(C`bug\-math\-bigint at rt.cpan.org\*(C'\fR, or through the web interface at
-<https://rt.cpan.org/Ticket/Create.html?Queue=Math\-BigInt>
-(requires login).
+<https://rt.cpan.org/Ticket/Create.html?Queue=Math\-BigInt> (requires login).
 We will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 .SH "SUPPORT"
@@ -968,17 +978,13 @@ You can find documentation for this module with the perldoc command.
 .PP
 You can also look for information at:
 .IP "\(bu" 4
+GitHub
+.Sp
+<https://github.com/pjacklam/p5\-Math\-BigInt>
+.IP "\(bu" 4
 \&\s-1RT: CPAN\s0's request tracker
 .Sp
-<https://rt.cpan.org/Public/Dist/Display.html?Name=Math\-BigInt>
-.IP "\(bu" 4
-AnnoCPAN: Annotated \s-1CPAN\s0 documentation
-.Sp
-<http://annocpan.org/dist/Math\-BigInt>
-.IP "\(bu" 4
-\&\s-1CPAN\s0 Ratings
-.Sp
-<https://cpanratings.perl.org/dist/Math\-BigInt>
+<https://rt.cpan.org/Dist/Display.html?Name=Math\-BigInt>
 .IP "\(bu" 4
 MetaCPAN
 .Sp
@@ -987,6 +993,10 @@ MetaCPAN
 \&\s-1CPAN\s0 Testers Matrix
 .Sp
 <http://matrix.cpantesters.org/?dist=Math\-BigInt>
+.IP "\(bu" 4
+\&\s-1CPAN\s0 Ratings
+.Sp
+<https://cpanratings.perl.org/dist/Math\-BigInt>
 .IP "\(bu" 4
 The Bignum mailing list
 .RS 4
@@ -1011,11 +1021,10 @@ This program is free software; you may redistribute it and/or modify it under
 the same terms as Perl itself.
 .SH "SEE ALSO"
 .IX Header "SEE ALSO"
-Math::BigFloat and Math::BigInt as well as the backends
+Math::BigInt and Math::BigInt as well as the backends
 Math::BigInt::FastCalc, Math::BigInt::GMP, and Math::BigInt::Pari.
 .PP
-The pragmas bignum, bigint and bigrat also might be of interest
-because they solve the autoupgrading/downgrading issue, at least partly.
+The pragmas bignum, bigint and bigrat.
 .SH "AUTHORS"
 .IX Header "AUTHORS"
 .IP "\(bu" 4
@@ -1025,4 +1034,4 @@ Completely rewritten by Tels <http://bloodgate.com> in 2001\-2008.
 .IP "\(bu" 4
 Florian Ragwitz <flora@cpan.org>, 2010.
 .IP "\(bu" 4
-Peter John Acklam <pjacklam@online.no>, 2011\-.
+Peter John Acklam <pjacklam@gmail.com>, 2011\-.

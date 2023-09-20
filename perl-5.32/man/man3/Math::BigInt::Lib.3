@@ -68,72 +68,10 @@
 .    \}
 .\}
 .rr rF
-.\"
-.\" Accent mark definitions (@(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2).
-.\" Fear.  Run.  Save yourself.  No user-serviceable parts.
-.    \" fudge factors for nroff and troff
-.if n \{\
-.    ds #H 0
-.    ds #V .8m
-.    ds #F .3m
-.    ds #[ \f1
-.    ds #] \fP
-.\}
-.if t \{\
-.    ds #H ((1u-(\\\\n(.fu%2u))*.13m)
-.    ds #V .6m
-.    ds #F 0
-.    ds #[ \&
-.    ds #] \&
-.\}
-.    \" simple accents for nroff and troff
-.if n \{\
-.    ds ' \&
-.    ds ` \&
-.    ds ^ \&
-.    ds , \&
-.    ds ~ ~
-.    ds /
-.\}
-.if t \{\
-.    ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
-.    ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
-.    ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
-.    ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
-.    ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
-.    ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
-.\}
-.    \" troff and (daisy-wheel) nroff accents
-.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
-.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
-.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
-.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
-.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
-.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
-.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
-.ds ae a\h'-(\w'a'u*4/10)'e
-.ds Ae A\h'-(\w'A'u*4/10)'E
-.    \" corrections for vroff
-.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
-.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
-.    \" for low resolution devices (crt and lpr)
-.if \n(.H>23 .if \n(.V>19 \
-\{\
-.    ds : e
-.    ds 8 ss
-.    ds o a
-.    ds d- d\h'-1'\(ga
-.    ds D- D\h'-1'\(hy
-.    ds th \o'bp'
-.    ds Th \o'LP'
-.    ds ae ae
-.    ds Ae AE
-.\}
-.rm #[ #] #H #V #F C
 .\" ========================================================================
 .\"
 .IX Title "Math::BigInt::Lib 3"
-.TH Math::BigInt::Lib 3 "2020-06-14" "perl v5.32.0" "Perl Programmers Reference Guide"
+.TH Math::BigInt::Lib 3 "2022-07-05" "perl v5.32.0" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -147,8 +85,8 @@ Math::BigInt::Lib \- virtual parent class for Math::BigInt libraries
 \&
 \&    package Math::BigInt::MyBackend;
 \&
-\&    use Math::BigInt::lib;
-\&    our @ISA = qw< Math::BigInt::lib >;
+\&    use Math::BigInt::Lib;
+\&    our @ISA = qw< Math::BigInt::Lib >;
 \&
 \&    sub _new { ... }
 \&    sub _str { ... }
@@ -301,28 +239,55 @@ Some more examples, all returning 250:
 \&    $x = $class \-> _from_base("42", 62)
 \&    $x = $class \-> _from_base("2!", 94)
 .Ve
+.IP "\s-1CLASS\-\s0>_from_base_num(\s-1ARRAY, BASE\s0)" 4
+.IX Item "CLASS->_from_base_num(ARRAY, BASE)"
+Returns an object given an array of values and a base. This method is
+equivalent to \f(CW\*(C`_from_base()\*(C'\fR, but works on numbers in an array rather than
+characters in a string. Unlike \f(CW\*(C`_from_base()\*(C'\fR, all input values may be
+arbitrarily large.
+.Sp
+.Vb 2
+\&    $x = $class \-> _from_base_num([1, 1, 0, 1], 2)    # $x is 13
+\&    $x = $class \-> _from_base_num([3, 125, 39], 128)  # $x is 65191
+.Ve
 .PP
 \fIMathematical functions\fR
 .IX Subsection "Mathematical functions"
 .IP "\s-1CLASS\-\s0>_add(\s-1OBJ1, OBJ2\s0)" 4
 .IX Item "CLASS->_add(OBJ1, OBJ2)"
-Returns the result of adding \s-1OBJ2\s0 to \s-1OBJ1.\s0
+Addition. Returns the result of adding \s-1OBJ2\s0 to \s-1OBJ1.\s0
 .IP "\s-1CLASS\-\s0>_mul(\s-1OBJ1, OBJ2\s0)" 4
 .IX Item "CLASS->_mul(OBJ1, OBJ2)"
-Returns the result of multiplying \s-1OBJ2\s0 and \s-1OBJ1.\s0
+Multiplication. Returns the result of multiplying \s-1OBJ2\s0 and \s-1OBJ1.\s0
 .IP "\s-1CLASS\-\s0>_div(\s-1OBJ1, OBJ2\s0)" 4
 .IX Item "CLASS->_div(OBJ1, OBJ2)"
-In scalar context, returns the quotient after dividing \s-1OBJ1\s0 by \s-1OBJ2\s0 and
-truncating the result to an integer. In list context, return the quotient and
-the remainder.
+Division. In scalar context, returns the quotient after dividing \s-1OBJ1\s0 by \s-1OBJ2\s0
+and truncating the result to an integer. In list context, return the quotient
+and the remainder.
 .IP "\s-1CLASS\-\s0>_sub(\s-1OBJ1, OBJ2, FLAG\s0)" 4
 .IX Item "CLASS->_sub(OBJ1, OBJ2, FLAG)"
 .PD 0
 .IP "\s-1CLASS\-\s0>_sub(\s-1OBJ1, OBJ2\s0)" 4
 .IX Item "CLASS->_sub(OBJ1, OBJ2)"
 .PD
-Returns the result of subtracting \s-1OBJ2\s0 by \s-1OBJ1.\s0 If \f(CW\*(C`flag\*(C'\fR is false or omitted,
-\&\s-1OBJ1\s0 might be modified. If \f(CW\*(C`flag\*(C'\fR is true, \s-1OBJ2\s0 might be modified.
+Subtraction. Returns the result of subtracting \s-1OBJ2\s0 by \s-1OBJ1.\s0 If \f(CW\*(C`flag\*(C'\fR is false
+or omitted, \s-1OBJ1\s0 might be modified. If \f(CW\*(C`flag\*(C'\fR is true, \s-1OBJ2\s0 might be modified.
+.IP "\s-1CLASS\-\s0>_sadd(\s-1OBJ1, SIGN1, OBJ2, SIGN2\s0)" 4
+.IX Item "CLASS->_sadd(OBJ1, SIGN1, OBJ2, SIGN2)"
+Signed addition. Returns the result of adding \s-1OBJ2\s0 with sign \s-1SIGN2\s0 to \s-1OBJ1\s0 with
+sign \s-1SIGN1.\s0
+.Sp
+.Vb 1
+\&    ($obj3, $sign3) = $class \-> _sadd($obj1, $sign1, $obj2, $sign2);
+.Ve
+.IP "\s-1CLASS\-\s0>_ssub(\s-1OBJ1, SIGN1, OBJ2, SIGN2\s0)" 4
+.IX Item "CLASS->_ssub(OBJ1, SIGN1, OBJ2, SIGN2)"
+Signed subtraction. Returns the result of subtracting \s-1OBJ2\s0 with sign \s-1SIGN2\s0 to
+\&\s-1OBJ1\s0 with sign \s-1SIGN1.\s0
+.Sp
+.Vb 1
+\&    ($obj3, $sign3) = $class \-> _sadd($obj1, $sign1, $obj2, $sign2);
+.Ve
 .IP "\s-1CLASS\-\s0>_dec(\s-1OBJ\s0)" 4
 .IX Item "CLASS->_dec(OBJ)"
 Returns the result after decrementing \s-1OBJ\s0 by one.
@@ -488,6 +453,17 @@ Returns a string representation of \s-1OBJ\s0 in base \s-1BASE\s0 with collation
 .Ve
 .Sp
 See \fB_from_base()\fR for more information.
+.IP "\s-1CLASS\-\s0>_to_base_num(\s-1OBJ, BASE\s0)" 4
+.IX Item "CLASS->_to_base_num(OBJ, BASE)"
+Converts the given number to the given base. This method is equivalent to
+\&\f(CW\*(C`_to_base()\*(C'\fR, but returns numbers in an array rather than characters in a
+string. In the output, the first element is the most significant. Unlike
+\&\f(CW\*(C`_to_base()\*(C'\fR, all input values may be arbitrarily large.
+.Sp
+.Vb 2
+\&    $x = $class \-> _to_base_num(13, 2)        # $x is [1, 1, 0, 1]
+\&    $x = $class \-> _to_base_num(65191, 128)   # $x is [3, 125, 39]
+.Ve
 .IP "\s-1CLASS\-\s0>_as_bin(\s-1OBJ\s0)" 4
 .IX Item "CLASS->_as_bin(OBJ)"
 Like \f(CW\*(C`_to_bin()\*(C'\fR but with a '0b' prefix.
@@ -647,7 +623,7 @@ This program is free software; you may redistribute it and/or modify it under
 the same terms as Perl itself.
 .SH "AUTHOR"
 .IX Header "AUTHOR"
-Peter John Acklam, <pjacklam@online.no>
+Peter John Acklam, <pjacklam@gmail.com>
 .PP
 Code and documentation based on the Math::BigInt::Calc module by Tels
 <nospam\-abuse@bloodgate.com>

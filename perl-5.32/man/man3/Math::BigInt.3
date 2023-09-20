@@ -68,78 +68,16 @@
 .    \}
 .\}
 .rr rF
-.\"
-.\" Accent mark definitions (@(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2).
-.\" Fear.  Run.  Save yourself.  No user-serviceable parts.
-.    \" fudge factors for nroff and troff
-.if n \{\
-.    ds #H 0
-.    ds #V .8m
-.    ds #F .3m
-.    ds #[ \f1
-.    ds #] \fP
-.\}
-.if t \{\
-.    ds #H ((1u-(\\\\n(.fu%2u))*.13m)
-.    ds #V .6m
-.    ds #F 0
-.    ds #[ \&
-.    ds #] \&
-.\}
-.    \" simple accents for nroff and troff
-.if n \{\
-.    ds ' \&
-.    ds ` \&
-.    ds ^ \&
-.    ds , \&
-.    ds ~ ~
-.    ds /
-.\}
-.if t \{\
-.    ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
-.    ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
-.    ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
-.    ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
-.    ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
-.    ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
-.\}
-.    \" troff and (daisy-wheel) nroff accents
-.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
-.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
-.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
-.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
-.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
-.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
-.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
-.ds ae a\h'-(\w'a'u*4/10)'e
-.ds Ae A\h'-(\w'A'u*4/10)'E
-.    \" corrections for vroff
-.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
-.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
-.    \" for low resolution devices (crt and lpr)
-.if \n(.H>23 .if \n(.V>19 \
-\{\
-.    ds : e
-.    ds 8 ss
-.    ds o a
-.    ds d- d\h'-1'\(ga
-.    ds D- D\h'-1'\(hy
-.    ds th \o'bp'
-.    ds Th \o'LP'
-.    ds ae ae
-.    ds Ae AE
-.\}
-.rm #[ #] #H #V #F C
 .\" ========================================================================
 .\"
 .IX Title "Math::BigInt 3"
-.TH Math::BigInt 3 "2020-06-14" "perl v5.32.0" "Perl Programmers Reference Guide"
+.TH Math::BigInt 3 "2023-03-31" "perl v5.32.0" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
 .nh
 .SH "NAME"
-Math::BigInt \- Arbitrary size integer/float math package
+Math::BigInt \- arbitrary size integer math package
 .SH "SYNOPSIS"
 .IX Header "SYNOPSIS"
 .Vb 1
@@ -150,18 +88,14 @@ Math::BigInt \- Arbitrary size integer/float math package
 \&  # pure Perl if the GMP library is not installed):
 \&  # (See also the L<MATH LIBRARY> section!)
 \&
-\&  # warns if Math::BigInt::GMP cannot be found
+\&  # to warn if Math::BigInt::GMP cannot be found, use
 \&  use Math::BigInt lib => \*(AqGMP\*(Aq;
 \&
-\&  # to suppress the warning use this:
+\&  # to suppress the warning if Math::BigInt::GMP cannot be found, use
 \&  # use Math::BigInt try => \*(AqGMP\*(Aq;
 \&
-\&  # dies if GMP cannot be loaded:
+\&  # to die if Math::BigInt::GMP cannot be found, use
 \&  # use Math::BigInt only => \*(AqGMP\*(Aq;
-\&
-\&  my $str = \*(Aq1234567890\*(Aq;
-\&  my @values = (64, 74, 18);
-\&  my $n = 1; my $sign = \*(Aq\-\*(Aq;
 \&
 \&  # Configuration methods (may be used as class methods and instance methods)
 \&
@@ -185,6 +119,7 @@ Math::BigInt \- Arbitrary size integer/float math package
 \&  $x = Math::BigInt\->from_oct(\*(Aq377\*(Aq);       # from octal
 \&  $x = Math::BigInt\->from_bin(\*(Aq1101\*(Aq);      # from binary
 \&  $x = Math::BigInt\->from_base(\*(Aqwhy\*(Aq, 36);  # from any base
+\&  $x = Math::BigInt\->from_base_num([1, 0], 2);  # from any base
 \&  $x = Math::BigInt\->bzero();               # create a +0
 \&  $x = Math::BigInt\->bone();                # create a +1
 \&  $x = Math::BigInt\->bone(\*(Aq\-\*(Aq);             # create a \-1
@@ -193,8 +128,10 @@ Math::BigInt \- Arbitrary size integer/float math package
 \&  $x = Math::BigInt\->bnan();                # create a Not\-A\-Number
 \&  $x = Math::BigInt\->bpi();                 # returns pi
 \&
-\&  $y = $x\->copy();         # make a copy (unlike $y = $x)
-\&  $y = $x\->as_int();       # return as a Math::BigInt
+\&  $y = $x\->copy();        # make a copy (unlike $y = $x)
+\&  $y = $x\->as_int();      # return as a Math::BigInt
+\&  $y = $x\->as_float();    # return as a Math::BigFloat
+\&  $y = $x\->as_rat();      # return as a Math::BigRat
 \&
 \&  # Boolean methods (these don\*(Aqt modify the invocand)
 \&
@@ -261,6 +198,9 @@ Math::BigInt \- Arbitrary size integer/float math package
 \&  $x\->bsqrt();            # calculate square root
 \&  $x\->broot($y);          # $y\*(Aqth root of $x (e.g. $y == 3 => cubic root)
 \&  $x\->bfac();             # factorial of $x (1*2*3*4*..$x)
+\&  $x\->bdfac();            # double factorial of $x ($x*($x\-2)*($x\-4)*...)
+\&  $x\->btfac();            # triple factorial of $x ($x*($x\-3)*($x\-6)*...)
+\&  $x\->bmfac($k);          # $k\*(Aqth multi\-factorial of $x ($x*($x\-$k)*...)
 \&
 \&  $x\->blsft($n);          # left shift $n places in base 2
 \&  $x\->blsft($n,$b);       # left shift $n places in base $b
@@ -307,6 +247,9 @@ Math::BigInt \- Arbitrary size integer/float math package
 \&  $x\->nparts();            # mantissa and exponent (normalised)
 \&  $x\->eparts();            # mantissa and exponent (engineering notation)
 \&  $x\->dparts();            # integer and fraction part
+\&  $x\->fparts();            # numerator and denominator
+\&  $x\->numerator();         # numerator
+\&  $x\->denominator();       # denominator
 \&
 \&  # Conversion methods (do not modify the invocand)
 \&
@@ -314,13 +257,14 @@ Math::BigInt \- Arbitrary size integer/float math package
 \&  $x\->bsstr();        # string in scientific notation with integers
 \&  $x\->bnstr();        # string in normalized notation
 \&  $x\->bestr();        # string in engineering notation
-\&  $x\->bdstr();        # string in decimal notation
+\&  $x\->bfstr();        # string in fractional notation
 \&
 \&  $x\->to_hex();       # as signed hexadecimal string
 \&  $x\->to_bin();       # as signed binary string
 \&  $x\->to_oct();       # as signed octal string
 \&  $x\->to_bytes();     # as byte string
 \&  $x\->to_base($b);    # as string in any base
+\&  $x\->to_base_num($b);   # as array of integers in any base
 \&
 \&  $x\->as_hex();       # as signed hexadecimal string with prefixed 0x
 \&  $x\->as_bin();       # as signed binary string with prefixed 0b
@@ -337,35 +281,67 @@ also provided for Perl operators.
 .SS "Input"
 .IX Subsection "Input"
 Input values to these routines may be any scalar number or string that looks
-like a number and represents an integer.
+like a number and represents an integer. Anything that is accepted by Perl as a
+literal numeric constant should be accepted by this module, except that finite
+non-integers return NaN.
 .IP "\(bu" 4
 Leading and trailing whitespace is ignored.
 .IP "\(bu" 4
-Leading and trailing zeros are ignored.
+Leading zeros are ignored, except for floating point numbers with a binary
+exponent, in which case the number is interpreted as an octal floating point
+number. For example, \*(L"01.4p+0\*(R" gives 1.5, \*(L"00.4p+0\*(R" gives 0.5, but \*(L"0.4p+0\*(R"
+gives a NaN. And while \*(L"0377\*(R" gives 255, \*(L"0377p0\*(R" gives 255.
 .IP "\(bu" 4
-If the string has a \*(L"0x\*(R" prefix, it is interpreted as a hexadecimal number.
+If the string has a \*(L"0x\*(R" or \*(L"0X\*(R" prefix, it is interpreted as a hexadecimal
+number.
 .IP "\(bu" 4
-If the string has a \*(L"0b\*(R" prefix, it is interpreted as a binary number.
+If the string has a \*(L"0o\*(R" or \*(L"0O\*(R" prefix, it is interpreted as an octal number. A
+floating point literal with a \*(L"0\*(R" prefix is also interpreted as an octal number.
 .IP "\(bu" 4
-One underline is allowed between any two digits.
+If the string has a \*(L"0b\*(R" or \*(L"0B\*(R" prefix, it is interpreted as a binary number.
 .IP "\(bu" 4
-If the string can not be interpreted, NaN is returned.
-.PP
-Octal numbers are typically prefixed by \*(L"0\*(R", but since leading zeros are
-stripped, these methods can not automatically recognize octal numbers, so use
-the constructor \fBfrom_oct()\fR to interpret octal strings.
+Underline characters are allowed in the same way as they are allowed in literal
+numerical constants.
+.IP "\(bu" 4
+If the string can not be interpreted, or does not represent a finite integer,
+NaN is returned.
+.IP "\(bu" 4
+For hexadecimal, octal, and binary floating point numbers, the exponent must be
+separated from the significand (mantissa) by the letter \*(L"p\*(R" or \*(L"P\*(R", not \*(L"e\*(R" or
+\&\*(L"E\*(R" as with decimal numbers.
 .PP
 Some examples of valid string input
 .PP
-.Vb 8
+.Vb 1
 \&    Input string                Resulting value
+\&
 \&    123                         123
 \&    1.23e2                      123
 \&    12300e\-2                    123
-\&    0xcafe                      51966
-\&    0b1101                      13
+\&
 \&    67_538_754                  67538754
 \&    \-4_5_6.7_8_9e+0_1_0         \-4567890000000
+\&
+\&    0x13a                       314
+\&    0x13ap0                     314
+\&    0x1.3ap+8                   314
+\&    0x0.00013ap+24              314
+\&    0x13a000p\-12                314
+\&
+\&    0o472                       314
+\&    0o1.164p+8                  314
+\&    0o0.0001164p+20             314
+\&    0o1164000p\-10               314
+\&
+\&    0472                        472     Note!
+\&    01.164p+8                   314
+\&    00.0001164p+20              314
+\&    01164000p\-10                314
+\&
+\&    0b100111010                 314
+\&    0b1.0011101p+8              314
+\&    0b0.00010011101p+12         314
+\&    0b100111010000p\-3           314
 .Ve
 .PP
 Input given as scalar numbers might lose precision. Quote your input to ensure
@@ -376,13 +352,12 @@ that no digits are lost:
 \&    $x = Math::BigInt\->new(\*(Aq56789012345678901234\*(Aq);   # good
 .Ve
 .PP
-Currently, Math::BigInt\->\fBnew()\fR defaults to 0, while Math::BigInt\->new('')
-results in 'NaN'. This might change in the future, so use always the following
-explicit forms to get a zero or NaN:
+Currently, \f(CW\*(C`Math::BigInt\-\*(C'\fR\fBnew()\fR> (no input argument) and
+\&\f(CW\*(C`Math::BigInt\-\*(C'\fRnew("")> return 0. This might change in the future, so always
+use the following explicit forms to get a zero:
 .PP
-.Vb 2
+.Vb 1
 \&    $zero = Math::BigInt\->bzero();
-\&    $nan  = Math::BigInt\->bnan();
 .Ve
 .SS "Output"
 .IX Subsection "Output"
@@ -494,19 +469,26 @@ Set/get the rounding mode.
 .IX Item "upgrade()"
 Set/get the class for upgrading. When a computation might result in a
 non-integer, the operands are upgraded to this class. This is used for instance
-by bignum. The default is \f(CW\*(C`undef\*(C'\fR, thus the following operation creates
-a Math::BigInt, not a Math::BigFloat:
+by bignum. The default is \f(CW\*(C`undef\*(C'\fR, i.e., no upgrading.
 .Sp
-.Vb 2
-\&    my $i = Math::BigInt\->new(123);
-\&    my $f = Math::BigFloat\->new(\*(Aq123.1\*(Aq);
+.Vb 4
+\&    # with no upgrading
+\&    $x = Math::BigInt\->new(12);
+\&    $y = Math::BigInt\->new(5);
+\&    print $x / $y, "\en";                # 2 as a Math::BigInt
 \&
-\&    print $i + $f, "\en";                # prints 246
+\&    # with upgrading to Math::BigFloat
+\&    Math::BigInt \-> upgrade("Math::BigFloat");
+\&    print $x / $y, "\en";                # 2.4 as a Math::BigFloat
+\&
+\&    # with upgrading to Math::BigRat (after loading Math::BigRat)
+\&    Math::BigInt \-> upgrade("Math::BigRat");
+\&    print $x / $y, "\en";                # 12/5 as a Math::BigRat
 .Ve
 .IP "\fBdowngrade()\fR" 4
 .IX Item "downgrade()"
-Set/get the class for downgrading. The default is \f(CW\*(C`undef\*(C'\fR. Downgrading is not
-done by Math::BigInt.
+Set/get the class for downgrading. The default is \f(CW\*(C`undef\*(C'\fR, i.e., no
+downgrading. Downgrading is not done by Math::BigInt.
 .IP "\fBmodify()\fR" 4
 .IX Item "modify()"
 .Vb 1
@@ -565,10 +547,18 @@ parameters are marked as \s-1RW.\s0 The following parameters are supported.
 .Ve
 .Sp
 Creates a new Math::BigInt object from a scalar or another Math::BigInt object.
-The input is accepted as decimal, hexadecimal (with leading '0x') or binary
-(with leading '0b').
+The input is accepted as decimal, hexadecimal (with leading '0x'), octal (with
+leading ('0o') or binary (with leading '0b').
 .Sp
 See \*(L"Input\*(R" for more info on accepted input formats.
+.IP "\fBfrom_dec()\fR" 4
+.IX Item "from_dec()"
+.Vb 1
+\&    $x = Math::BigInt\->from_dec("314159");    # input is decimal
+.Ve
+.Sp
+Interpret input as a decimal. It is equivalent to \fBnew()\fR, but does not accept
+anything but strings representing finite, decimal numbers.
 .IP "\fBfrom_hex()\fR" 4
 .IX Item "from_hex()"
 .Vb 1
@@ -675,6 +665,17 @@ are equivalent
 \&    $x = Math::BigInt\->from_base("100", 2, "01");   # $x is 4
 \&    $x = Math::BigInt\->from_base("|\-\-", 2, "\-|");   # $x is 4
 .Ve
+.IP "\fBfrom_base_num()\fR" 4
+.IX Item "from_base_num()"
+Returns a new Math::BigInt object given an array of values and a base. This
+method is equivalent to \f(CW\*(C`from_base()\*(C'\fR, but works on numbers in an array rather
+than characters in a string. Unlike \f(CW\*(C`from_base()\*(C'\fR, all input values may be
+arbitrarily large.
+.Sp
+.Vb 2
+\&    $x = Math::BigInt\->from_base_num([1, 1, 0, 1], 2)     # $x is 13
+\&    $x = Math::BigInt\->from_base_num([3, 125, 39], 128)   # $x is 65191
+.Ve
 .IP "\fBbzero()\fR" 4
 .IX Item "bzero()"
 .Vb 2
@@ -776,6 +777,12 @@ thereof, or a string that \f(CW\*(C`ref($x)\->new()\*(C'\fR can parse to create 
 v1.22, while \f(CW\*(C`as_int()\*(C'\fR was introduced in v1.68.
 .Sp
 In Math::BigInt, \f(CW\*(C`as_int()\*(C'\fR has the same effect as \f(CW\*(C`copy()\*(C'\fR.
+.IP "\fBas_float()\fR" 4
+.IX Item "as_float()"
+Return the argument as a Math::BigFloat object.
+.IP "\fBas_rat()\fR" 4
+.IX Item "as_rat()"
+Return the argument as a Math::BigRat object.
 .SS "Boolean methods"
 .IX Subsection "Boolean methods"
 None of these methods modify the invocand object.
@@ -1328,21 +1335,39 @@ Calculates the N'th root of \f(CW$x\fR.
 .IP "\fBbfac()\fR" 4
 .IX Item "bfac()"
 .Vb 1
-\&    $x\->bfac();                 # factorial of $x (1*2*3*4*..*$x)
+\&    $x\->bfac();             # factorial of $x
 .Ve
 .Sp
-Returns the factorial of \f(CW$x\fR, i.e., the product of all positive integers up
-to and including \f(CW$x\fR.
+Returns the factorial of \f(CW$x\fR, i.e., \f(CW$x\fR*($x\-1)*($x\-2)*...*2*1, the product of
+all positive integers up to and including \f(CW$x\fR. \f(CW$x\fR must be > \-1. The
+factorial of N is commonly written as N!, or N!1, when using the multifactorial
+notation.
 .IP "\fBbdfac()\fR" 4
 .IX Item "bdfac()"
 .Vb 1
-\&    $x\->bdfac();                # double factorial of $x (1*2*3*4*..*$x)
+\&    $x\->bdfac();                # double factorial of $x
 .Ve
 .Sp
-Returns the double factorial of \f(CW$x\fR. If \f(CW$x\fR is an even integer, returns the
-product of all positive, even integers up to and including \f(CW$x\fR, i.e.,
-2*4*6*...*$x. If \f(CW$x\fR is an odd integer, returns the product of all positive,
-odd integers, i.e., 1*3*5*...*$x.
+Returns the double factorial of \f(CW$x\fR, i.e., \f(CW$x\fR*($x\-2)*($x\-4)*... \f(CW$x\fR must be
+> \-2. The double factorial of N is commonly written as N!!, or N!2, when using
+the multifactorial notation.
+.IP "\fBbtfac()\fR" 4
+.IX Item "btfac()"
+.Vb 1
+\&    $x\->btfac();            # triple factorial of $x
+.Ve
+.Sp
+Returns the triple factorial of \f(CW$x\fR, i.e., \f(CW$x\fR*($x\-3)*($x\-6)*... \f(CW$x\fR must be
+> \-3. The triple factorial of N is commonly written as N!!!, or N!3, when using
+the multifactorial notation.
+.IP "\fBbmfac()\fR" 4
+.IX Item "bmfac()"
+.Vb 1
+\&    $x\->bmfac($k);          # $k\*(Aqth multifactorial of $x
+.Ve
+.Sp
+Returns the multi-factorial of \f(CW$x\fR, i.e., \f(CW$x\fR*($x\-$k)*($x\-2*$k)*... \f(CW$x\fR must
+be > \-$k. The multi-factorial of N is commonly written as N!K.
 .IP "\fBbfib()\fR" 4
 .IX Item "bfib()"
 .Vb 2
@@ -1675,6 +1700,21 @@ is returned.
 Returns the integer part and the fraction part. If the fraction part can not be
 represented as an integer, upgrading is performed or NaN is returned. The
 output of \f(CW\*(C`dparts()\*(C'\fR corresponds to the output from \f(CW\*(C`bdstr()\*(C'\fR.
+.IP "\fBfparts()\fR" 4
+.IX Item "fparts()"
+Returns the smallest possible numerator and denominator so that the numerator
+divided by the denominator gives back the original value. For finite numbers,
+both values are integers. Mnemonic: fraction.
+.IP "\fBnumerator()\fR" 4
+.IX Item "numerator()"
+Together with \*(L"\fBdenominator()\fR\*(R", returns the smallest integers so that the
+numerator divided by the denominator reproduces the original value. With
+Math::BigInt, \fBnumerator()\fR simply returns a copy of the invocand.
+.IP "\fBdenominator()\fR" 4
+.IX Item "denominator()"
+Together with \*(L"\fBnumerator()\fR\*(R", returns the smallest integers so that the
+numerator divided by the denominator reproduces the original value. With
+Math::BigInt, \fBdenominator()\fR always returns either a 1 or a NaN.
 .SS "String conversion methods"
 .IX Subsection "String conversion methods"
 .IP "\fBbstr()\fR" 4
@@ -1735,6 +1775,18 @@ corresponds to the output from \f(CW\*(C`dparts()\*(C'\fR.
 \&    12000 is returned as "12000"
 \&    10000 is returned as "10000"
 .Ve
+.IP "\fBbfstr()\fR" 4
+.IX Item "bfstr()"
+Returns a string representing the number using fractional notation. The output
+corresponds to the output from \f(CW\*(C`fparts()\*(C'\fR.
+.Sp
+.Vb 5
+\&        12.345 is returned as "2469/200"
+\&       123.45 is returned as "2469/20"
+\&      1234.5 is returned as "2469/2"
+\&     12345 is returned as "12345"
+\&    123450 is returned as "123450"
+.Ve
 .IP "\fBto_hex()\fR" 4
 .IX Item "to_hex()"
 .Vb 1
@@ -1763,8 +1815,8 @@ Returns an octal string representation of the number. See also \fBfrom_oct()\fR.
 \&    $s = $x\->to_bytes();                    # $s = "cafe"
 .Ve
 .Sp
-Returns a byte string representation of the number using big endian byte
-order. The invocand must be a non-negative, finite integer. See also \fBfrom_bytes()\fR.
+Returns a byte string representation of the number using big endian byte order.
+The invocand must be a non-negative, finite integer. See also \fBfrom_bytes()\fR.
 .IP "\fBto_base()\fR" 4
 .IX Item "to_base()"
 .Vb 4
@@ -1788,6 +1840,20 @@ Here are some more examples
 .Ve
 .Sp
 See \fBfrom_base()\fR for information and examples.
+.IP "\fBto_base_num()\fR" 4
+.IX Item "to_base_num()"
+Converts the given number to the given base. This method is equivalent to
+\&\f(CW\*(C`_to_base()\*(C'\fR, but returns numbers in an array rather than characters in a
+string. In the output, the first element is the most significant. Unlike
+\&\f(CW\*(C`_to_base()\*(C'\fR, all input values may be arbitrarily large.
+.Sp
+.Vb 2
+\&    $x = Math::BigInt\->new(13);
+\&    $x\->to_base_num(2);                         # returns [1, 1, 0, 1]
+\&
+\&    $x = Math::BigInt\->new(65191);
+\&    $x\->to_base_num(128);                       # returns [3, 125, 39]
+.Ve
 .IP "\fBas_hex()\fR" 4
 .IX Item "as_hex()"
 .Vb 1
@@ -1822,6 +1888,93 @@ This is just an alias for \f(CW\*(C`to_bytes()\*(C'\fR.
 .Sp
 Returns a Perl scalar from \f(CW$x\fR. It is used automatically whenever a scalar is
 needed, for instance in array index operations.
+.SS "Utility methods"
+.IX Subsection "Utility methods"
+These utility methods are made public
+.IP "\fBdec_str_to_dec_flt_str()\fR" 4
+.IX Item "dec_str_to_dec_flt_str()"
+Takes a string representing any valid number using decimal notation and converts
+it to a string representing the same number using decimal floating point
+notation. The output consists of five parts joined together: the sign of the
+significand, the absolute value of the significand as the smallest possible
+integer, the letter \*(L"e\*(R", the sign of the exponent, and the absolute value of the
+exponent. If the input is invalid, nothing is returned.
+.Sp
+.Vb 1
+\&    $str2 = $class \-> dec_str_to_dec_flt_str($str1);
+.Ve
+.Sp
+Some examples
+.Sp
+.Vb 4
+\&    Input           Output
+\&    31400.00e\-4     +314e\-2
+\&    \-0.00012300e8   \-123e+2
+\&    0               +0e+0
+.Ve
+.IP "\fBhex_str_to_dec_flt_str()\fR" 4
+.IX Item "hex_str_to_dec_flt_str()"
+Takes a string representing any valid number using hexadecimal notation and
+converts it to a string representing the same number using decimal floating
+point notation. The output has the same format as that of
+\&\*(L"\fBdec_str_to_dec_flt_str()\fR\*(R".
+.Sp
+.Vb 1
+\&    $str2 = $class \-> hex_str_to_dec_flt_str($str1);
+.Ve
+.Sp
+Some examples
+.Sp
+.Vb 2
+\&    Input           Output
+\&    0xff            +255e+0
+.Ve
+.Sp
+Some examples
+.IP "\fBoct_str_to_dec_flt_str()\fR" 4
+.IX Item "oct_str_to_dec_flt_str()"
+Takes a string representing any valid number using octal notation and converts
+it to a string representing the same number using decimal floating point
+notation. The output has the same format as that of
+\&\*(L"\fBdec_str_to_dec_flt_str()\fR\*(R".
+.Sp
+.Vb 1
+\&    $str2 = $class \-> oct_str_to_dec_flt_str($str1);
+.Ve
+.IP "\fBbin_str_to_dec_flt_str()\fR" 4
+.IX Item "bin_str_to_dec_flt_str()"
+Takes a string representing any valid number using binary notation and converts
+it to a string representing the same number using decimal floating point
+notation. The output has the same format as that of
+\&\*(L"\fBdec_str_to_dec_flt_str()\fR\*(R".
+.Sp
+.Vb 1
+\&    $str2 = $class \-> bin_str_to_dec_flt_str($str1);
+.Ve
+.IP "\fBdec_str_to_dec_str()\fR" 4
+.IX Item "dec_str_to_dec_str()"
+Takes a string representing any valid number using decimal notation and converts
+it to a string representing the same number using decimal notation. If the
+number represents an integer, the output consists of a sign and the absolute
+value. If the number represents a non-integer, the output consists of a sign,
+the integer part of the number, the decimal point \*(L".\*(R", and the fraction part of
+the number without any trailing zeros. If the input is invalid, nothing is
+returned.
+.IP "\fBhex_str_to_dec_str()\fR" 4
+.IX Item "hex_str_to_dec_str()"
+Takes a string representing any valid number using hexadecimal notation and
+converts it to a string representing the same number using decimal notation. The
+output has the same format as that of \*(L"\fBdec_str_to_dec_str()\fR\*(R".
+.IP "\fBoct_str_to_dec_str()\fR" 4
+.IX Item "oct_str_to_dec_str()"
+Takes a string representing any valid number using octal notation and converts
+it to a string representing the same number using decimal notation. The
+output has the same format as that of \*(L"\fBdec_str_to_dec_str()\fR\*(R".
+.IP "\fBbin_str_to_dec_str()\fR" 4
+.IX Item "bin_str_to_dec_str()"
+Takes a string representing any valid number using binary notation and converts
+it to a string representing the same number using decimal notation. The output
+has the same format as that of \*(L"\fBdec_str_to_dec_str()\fR\*(R".
 .SH "ACCURACY and PRECISION"
 .IX Header "ACCURACY and PRECISION"
 Math::BigInt and Math::BigFloat have full support for accuracy and precision
@@ -1996,7 +2149,7 @@ This is how it works now:
 \&  * You can also set P globally by using Math::SomeClass\->precision()
 \&    likewise.
 \&  * Globals are classwide, and not inherited by subclasses.
-\&  * to undefine A, use Math::SomeCLass\->accuracy(undef);
+\&  * to undefine A, use Math::SomeClass\->accuracy(undef);
 \&  * to undefine P, use Math::SomeClass\->precision(undef);
 \&  * Setting Math::SomeClass\->accuracy() clears automatically
 \&    Math::SomeClass\->precision(), and vice versa.
@@ -2032,8 +2185,8 @@ This is how it works now:
 \&        use Math::BigInt;
 \&
 \&        Math::BigInt\->accuracy(2);
-\&        Math::BigInt::SomeSubClass\->accuracy(3);
-\&        $x = Math::BigInt::SomeSubClass\->new(1234);
+\&        Math::BigInt::SomeSubclass\->accuracy(3);
+\&        $x = Math::BigInt::SomeSubclass\->new(1234);
 \&
 \&    $x is now 1230, and not 1200. A subclass might choose to implement
 \&    this otherwise, e.g. falling back to the parent\*(Aqs A and P.
@@ -2200,60 +2353,99 @@ might change without notice. Use \fB\s-1ONLY\s0\fR method calls like \f(CW\*(C`$
 instead relying on the internal representation.
 .SS "\s-1MATH LIBRARY\s0"
 .IX Subsection "MATH LIBRARY"
-Math with the numbers is done (by default) by a module called
-\&\f(CW\*(C`Math::BigInt::Calc\*(C'\fR. This is equivalent to saying:
+The mathematical computations are performed by a backend library. It is not
+required to specify which backend library to use, but some backend libraries
+are much faster than the default library.
+.PP
+\fIThe default library\fR
+.IX Subsection "The default library"
+.PP
+The default library is Math::BigInt::Calc, which is implemented in pure Perl
+and hence does not require a compiler.
+.PP
+\fISpecifying a library\fR
+.IX Subsection "Specifying a library"
+.PP
+The simple case
+.PP
+.Vb 1
+\&    use Math::BigInt;
+.Ve
+.PP
+is equivalent to saying
 .PP
 .Vb 1
 \&    use Math::BigInt try => \*(AqCalc\*(Aq;
 .Ve
 .PP
-You can change this backend library by using:
+You can use a different backend library with, e.g.,
 .PP
 .Vb 1
 \&    use Math::BigInt try => \*(AqGMP\*(Aq;
 .Ve
 .PP
-\&\fBNote\fR: General purpose packages should not be explicit about the library to
-use; let the script author decide which is best.
+which attempts to load the Math::BigInt::GMP library, and falls back to the
+default library if the specified library can't be loaded.
 .PP
-If your script works with huge numbers and Calc is too slow for them, you can
-also for the loading of one of these libraries and if none of them can be used,
-the code dies:
+Multiple libraries can be specified by separating them by a comma, e.g.,
+.PP
+.Vb 1
+\&    use Math::BigInt try => \*(AqGMP,Pari\*(Aq;
+.Ve
+.PP
+If you request a specific set of libraries and do not allow fallback to the
+default library, specify them using \*(L"only\*(R",
 .PP
 .Vb 1
 \&    use Math::BigInt only => \*(AqGMP,Pari\*(Aq;
 .Ve
 .PP
-The following would first try to find Math::BigInt::Foo, then
-Math::BigInt::Bar, and when this also fails, revert to Math::BigInt::Calc:
+If you prefer a specific set of libraries, but want to see a warning if the
+fallback library is used, specify them using \*(L"lib\*(R",
+.PP
+.Vb 1
+\&    use Math::BigInt lib => \*(AqGMP,Pari\*(Aq;
+.Ve
+.PP
+The following first tries to find Math::BigInt::Foo, then Math::BigInt::Bar, and
+if this also fails, reverts to Math::BigInt::Calc:
 .PP
 .Vb 1
 \&    use Math::BigInt try => \*(AqFoo,Math::BigInt::Bar\*(Aq;
 .Ve
 .PP
-The library that is loaded last is used. Note that this can be overwritten at
-any time by loading a different library, and numbers constructed with different
-libraries cannot be used in math operations together.
-.PP
-\fIWhat library to use?\fR
-.IX Subsection "What library to use?"
+\fIWhich library to use?\fR
+.IX Subsection "Which library to use?"
 .PP
 \&\fBNote\fR: General purpose packages should not be explicit about the library to
 use; let the script author decide which is best.
 .PP
-Math::BigInt::GMP and Math::BigInt::Pari are in cases involving big
-numbers much faster than Calc, however it is slower when dealing with very
-small numbers (less than about 20 digits) and when converting very large
-numbers to decimal (for instance for printing, rounding, calculating their
-length in decimal etc).
+Math::BigInt::GMP, Math::BigInt::Pari, and Math::BigInt::GMPz are in
+cases involving big numbers much faster than Math::BigInt::Calc. However
+these libraries are slower when dealing with very small numbers (less than about
+20 digits) and when converting very large numbers to decimal (for instance for
+printing, rounding, calculating their length in decimal etc.).
 .PP
 So please select carefully what library you want to use.
 .PP
-Different low-level libraries use different formats to store the numbers.
-However, you should \fB\s-1NOT\s0\fR depend on the number having a specific format
-internally.
+Different low-level libraries use different formats to store the numbers, so
+mixing them won't work. You should not depend on the number having a specific
+internal format.
 .PP
 See the respective math library module documentation for further details.
+.PP
+\fILoading multiple libraries\fR
+.IX Subsection "Loading multiple libraries"
+.PP
+The first library that is successfully loaded is the one that will be used. Any
+further attempts at loading a different module will be ignored. This is to avoid
+the situation where module A requires math library X, and module B requires math
+library Y, causing modules A and B to be incompatible. For example,
+.PP
+.Vb 2
+\&    use Math::BigInt;                   # loads default "Calc"
+\&    use Math::BigFloat only => "GMP";   # ignores "GMP"
+.Ve
 .SS "\s-1SIGN\s0"
 .IX Subsection "SIGN"
 The sign is either '+', '\-', 'NaN', '+inf' or '\-inf'.
@@ -2275,7 +2467,7 @@ when dividing any negative number by 0.
 \&  $x = Math::BigInt\->babs("\-12345");    # Math::BigInt "12345"
 \&  $x = Math::BigInt\->bnorm("\-0.00");    # Math::BigInt "0"
 \&  $x = bigint(1) + bigint(2);           # Math::BigInt "3"
-\&  $x = bigint(1) + "2";                 # ditto (auto\-Math::BigIntify of "2")
+\&  $x = bigint(1) + "2";                 # ditto ("2" becomes a Math::BigInt)
 \&  $x = bigint(1);                       # Math::BigInt "1"
 \&  $x = $x + 5 / 2;                      # Math::BigInt "3"
 \&  $x = $x ** 3;                         # Math::BigInt "27"
@@ -2318,57 +2510,82 @@ Examples for converting:
 \&  my $x = Math::BigInt\->new(\*(Aq0b1\*(Aq.\*(Aq01\*(Aq x 123);
 \&  print "bin: ",$x\->as_bin()," hex:",$x\->as_hex()," dec: ",$x,"\en";
 .Ve
-.SH "Autocreating constants"
-.IX Header "Autocreating constants"
-After \f(CW\*(C`use Math::BigInt \*(Aq:constant\*(Aq\*(C'\fR all the \fBinteger\fR decimal, hexadecimal
-and binary constants in the given scope are converted to \f(CW\*(C`Math::BigInt\*(C'\fR. This
-conversion happens at compile time.
+.SH "NUMERIC LITERALS"
+.IX Header "NUMERIC LITERALS"
+After \f(CW\*(C`use Math::BigInt \*(Aq:constant\*(Aq\*(C'\fR all numeric literals in the given scope
+are converted to \f(CW\*(C`Math::BigInt\*(C'\fR objects. This conversion happens at compile
+time. Every non-integer is convert to a NaN.
 .PP
-In particular,
+For example,
 .PP
 .Vb 1
-\&  perl \-MMath::BigInt=:constant \-e \*(Aqprint 2**100,"\en"\*(Aq
+\&    perl \-MMath::BigInt=:constant \-le \*(Aqprint 2**150\*(Aq
 .Ve
 .PP
-prints the integer value of \f(CW\*(C`2**100\*(C'\fR. Note that without conversion of
-constants the expression 2**100 is calculated using Perl scalars.
+prints the exact value of \f(CW\*(C`2**150\*(C'\fR. Note that without conversion of constants
+to objects the expression \f(CW\*(C`2**150\*(C'\fR is calculated using Perl scalars, which
+leads to an inaccurate result.
 .PP
-Please note that strings and floating point constants are not affected, so that
+Please note that strings are not affected, so that
 .PP
 .Vb 1
 \&    use Math::BigInt qw/:constant/;
 \&
-\&    $x = 1234567890123456789012345678901234567890
-\&            + 123456789123456789;
-\&    $y = \*(Aq1234567890123456789012345678901234567890\*(Aq
-\&            + \*(Aq123456789123456789\*(Aq;
+\&    $x = "1234567890123456789012345678901234567890"
+\&            + "123456789123456789";
 .Ve
 .PP
-does not give you what you expect. You need an explicit Math::BigInt\->\fBnew()\fR
-around one of the operands. You should also quote large constants to protect
+does give you what you expect. You need an explicit Math::BigInt\->\fBnew()\fR around
+at least one of the operands. You should also quote large constants to prevent
 loss of precision:
 .PP
 .Vb 1
 \&    use Math::BigInt;
 \&
-\&    $x = Math::BigInt\->new(\*(Aq1234567889123456789123456789123456789\*(Aq);
+\&    $x = Math::BigInt\->new("1234567889123456789123456789123456789");
 .Ve
 .PP
-Without the quotes Perl would convert the large number to a floating point
-constant at compile time and then hand the result to Math::BigInt, which
-results in an truncated result or a NaN.
+Without the quotes Perl first converts the large number to a floating point
+constant at compile time, and then converts the result to a Math::BigInt object
+at run time, which results in an inaccurate result.
+.SS "Hexadecimal, octal, and binary floating point literals"
+.IX Subsection "Hexadecimal, octal, and binary floating point literals"
+Perl (and this module) accepts hexadecimal, octal, and binary floating point
+literals, but use them with care with Perl versions before v5.32.0, because some
+versions of Perl silently give the wrong result. Below are some examples of
+different ways to write the number decimal 314.
 .PP
-This also applies to integers that look like floating point constants:
+Hexadecimal floating point literals:
 .PP
-.Vb 1
-\&    use Math::BigInt \*(Aq:constant\*(Aq;
-\&
-\&    print ref(123e2),"\en";
-\&    print ref(123.2e2),"\en";
+.Vb 3
+\&    0x1.3ap+8         0X1.3AP+8
+\&    0x1.3ap8          0X1.3AP8
+\&    0x13a0p\-4         0X13A0P\-4
 .Ve
 .PP
-prints nothing but newlines. Use either bignum or Math::BigFloat to get
-this to work.
+Octal floating point literals (with \*(L"0\*(R" prefix):
+.PP
+.Vb 3
+\&    01.164p+8         01.164P+8
+\&    01.164p8          01.164P8
+\&    011640p\-4         011640P\-4
+.Ve
+.PP
+Octal floating point literals (with \*(L"0o\*(R" prefix) (requires v5.34.0):
+.PP
+.Vb 3
+\&    0o1.164p+8        0O1.164P+8
+\&    0o1.164p8         0O1.164P8
+\&    0o11640p\-4        0O11640P\-4
+.Ve
+.PP
+Binary floating point literals:
+.PP
+.Vb 3
+\&    0b1.0011101p+8    0B1.0011101P+8
+\&    0b1.0011101p8     0B1.0011101P8
+\&    0b10011101000p\-2  0B10011101000P\-2
+.Ve
 .SH "PERFORMANCE"
 .IX Header "PERFORMANCE"
 Using the form \f(CW$x\fR += \f(CW$y\fR; etc over \f(CW$x\fR = \f(CW$x\fR + \f(CW$y\fR is faster, since a copy of \f(CW$x\fR
@@ -2567,11 +2784,12 @@ strings:
 \&    use Test::More tests => 3;
 \&    use Math::BigInt;
 \&
-\&    $x = Math::BigInt\->new(\*(Aq1e56\*(Aq); $y = 1e56;
+\&    $x = Math::BigInt\->new(\*(Aq1e56\*(Aq);
+\&    $y = 1e56;
 \&    is($x,$y);                     # fails
-\&    is($x\->bsstr(),$y);            # okay
+\&    is($x\->bsstr(), $y);           # okay
 \&    $y = Math::BigInt\->new($y);
-\&    is($x,$y);                     # okay
+\&    is($x, $y);                    # okay
 .Ve
 .Sp
 Alternatively, simply use \f(CW\*(C`<=>\*(C'\fR for comparisons, this always gets it
@@ -2732,17 +2950,13 @@ You can find documentation for this module with the perldoc command.
 .PP
 You can also look for information at:
 .IP "\(bu" 4
+GitHub
+.Sp
+<https://github.com/pjacklam/p5\-Math\-BigInt>
+.IP "\(bu" 4
 \&\s-1RT: CPAN\s0's request tracker
 .Sp
-<https://rt.cpan.org/Public/Dist/Display.html?Name=Math\-BigInt>
-.IP "\(bu" 4
-AnnoCPAN: Annotated \s-1CPAN\s0 documentation
-.Sp
-<http://annocpan.org/dist/Math\-BigInt>
-.IP "\(bu" 4
-\&\s-1CPAN\s0 Ratings
-.Sp
-<https://cpanratings.perl.org/dist/Math\-BigInt>
+<https://rt.cpan.org/Dist/Display.html?Name=Math\-BigInt>
 .IP "\(bu" 4
 MetaCPAN
 .Sp
@@ -2751,6 +2965,10 @@ MetaCPAN
 \&\s-1CPAN\s0 Testers Matrix
 .Sp
 <http://matrix.cpantesters.org/?dist=Math\-BigInt>
+.IP "\(bu" 4
+\&\s-1CPAN\s0 Ratings
+.Sp
+<https://cpanratings.perl.org/dist/Math\-BigInt>
 .IP "\(bu" 4
 The Bignum mailing list
 .RS 4
@@ -2789,7 +3007,7 @@ Completely rewritten by Tels <http://bloodgate.com>, 2001\-2008.
 .IP "\(bu" 4
 Florian Ragwitz <flora@cpan.org>, 2010.
 .IP "\(bu" 4
-Peter John Acklam <pjacklam@online.no>, 2011\-.
+Peter John Acklam <pjacklam@gmail.com>, 2011\-.
 .PP
 Many people contributed in one or more ways to the final beast, see the file
 \&\s-1CREDITS\s0 for an (incomplete) list. If you miss your name, please drop me a
