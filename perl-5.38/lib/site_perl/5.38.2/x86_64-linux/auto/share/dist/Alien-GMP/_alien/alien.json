@@ -1,0 +1,31 @@
+{
+   "alien_build_version" : "2.80",
+   "alt" : {
+      "gmp" : {
+         "cflags" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/include ",
+         "cflags_static" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/include ",
+         "libs" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/lib -lgmp ",
+         "libs_static" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/lib -lgmp "
+      },
+      "gmpxx" : {
+         "cflags" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/include ",
+         "cflags_static" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/include ",
+         "libs" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/lib -lgmpxx ",
+         "libs_static" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/lib -lgmpxx "
+      }
+   },
+   "cflags" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/include ",
+   "cflags_static" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/include ",
+   "install_type" : "share",
+   "legacy" : {
+      "finished_installing" : 1,
+      "install_type" : "share",
+      "original_prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP",
+      "version" : "6.3.0"
+   },
+   "libs" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/lib -lgmp ",
+   "libs_static" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP/lib -lgmp ",
+   "perl_module_version" : "1.16",
+   "prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-GMP",
+   "version" : "6.3.0"
+}

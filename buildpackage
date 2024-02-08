@@ -11,9 +11,9 @@ pre_build_hook() {
 
 copy_content() {
     echo "Copying content to $1"
-    mkdir -p $1/$BASEDIR/perl-5.32
+    mkdir -p $1/$BASEDIR/perl-5.38
 
-    cp -a ./perl-5.32/* $1/$BASEDIR/perl-5.32
+    cp -a ./perl-5.38/* $1/$BASEDIR/perl-5.38
 }
 
 . ./tools/packager.sh

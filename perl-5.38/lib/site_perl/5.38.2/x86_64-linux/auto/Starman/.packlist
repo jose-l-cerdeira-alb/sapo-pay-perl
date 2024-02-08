@@ -1,0 +1,8 @@
+/servers/pay/perl-5.38/bin/starman
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/HTTP/Server/PSGI/Net/Server/PreFork.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Plack/Handler/Starman.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Starman.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Starman/Server.pm
+/servers/pay/perl-5.38/man/man1/starman.1
+/servers/pay/perl-5.38/man/man3/Plack::Handler::Starman.3
+/servers/pay/perl-5.38/man/man3/Starman.3

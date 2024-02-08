@@ -1,0 +1,18 @@
+{
+   "alien_build_version" : "2.80",
+   "cflags" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-Libxml2/include/libxml2 ",
+   "cflags_static" : "-I/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-Libxml2/include/libxml2 ",
+   "install_type" : "share",
+   "legacy" : {
+      "finished_installing" : 1,
+      "install_type" : "share",
+      "name" : "libxml-2.0",
+      "original_prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-Libxml2",
+      "version" : "2.12.4"
+   },
+   "libs" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-Libxml2/lib -lxml2 -lm -lz ",
+   "libs_static" : "-L/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-Libxml2/lib -lxml2 -lm -lz ",
+   "perl_module_version" : "0.19",
+   "prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-Libxml2",
+   "version" : "2.12.4"
+}

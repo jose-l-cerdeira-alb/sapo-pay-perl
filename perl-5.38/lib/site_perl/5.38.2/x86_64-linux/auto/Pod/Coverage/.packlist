@@ -1,0 +1,9 @@
+/servers/pay/perl-5.38/bin/pod_cover
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Pod/Coverage.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Pod/Coverage/CountParents.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Pod/Coverage/ExportOnly.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Pod/Coverage/Overloader.pm
+/servers/pay/perl-5.38/man/man3/Pod::Coverage.3
+/servers/pay/perl-5.38/man/man3/Pod::Coverage::CountParents.3
+/servers/pay/perl-5.38/man/man3/Pod::Coverage::ExportOnly.3
+/servers/pay/perl-5.38/man/man3/Pod::Coverage::Overloader.3

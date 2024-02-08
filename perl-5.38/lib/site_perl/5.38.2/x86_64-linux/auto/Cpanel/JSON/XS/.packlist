@@ -1,0 +1,9 @@
+/servers/pay/perl-5.38/bin/cpanel_json_xs
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/Cpanel/JSON/XS.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/Cpanel/JSON/XS/Boolean.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/Cpanel/JSON/XS/Type.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/Cpanel/JSON/XS/XS.so
+/servers/pay/perl-5.38/man/man1/cpanel_json_xs.1
+/servers/pay/perl-5.38/man/man3/Cpanel::JSON::XS.3
+/servers/pay/perl-5.38/man/man3/Cpanel::JSON::XS::Boolean.3
+/servers/pay/perl-5.38/man/man3/Cpanel::JSON::XS::Type.3

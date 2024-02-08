@@ -1,0 +1,12 @@
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/FCGI/Client.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/FCGI/Client/Connection.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/FCGI/Client/Constant.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/FCGI/Client/Record.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/FCGI/Client/RecordFactory.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/FCGI/Client/RecordHeader.pm
+/servers/pay/perl-5.38/man/man3/FCGI::Client.3
+/servers/pay/perl-5.38/man/man3/FCGI::Client::Connection.3
+/servers/pay/perl-5.38/man/man3/FCGI::Client::Constant.3
+/servers/pay/perl-5.38/man/man3/FCGI::Client::Record.3
+/servers/pay/perl-5.38/man/man3/FCGI::Client::RecordFactory.3
+/servers/pay/perl-5.38/man/man3/FCGI::Client::RecordHeader.3

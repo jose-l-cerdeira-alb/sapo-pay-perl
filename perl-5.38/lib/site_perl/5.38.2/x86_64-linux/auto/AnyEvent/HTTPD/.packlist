@@ -1,0 +1,10 @@
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/AnyEvent/HTTPD.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/AnyEvent/HTTPD/HTTPConnection.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/AnyEvent/HTTPD/HTTPServer.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/AnyEvent/HTTPD/Request.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/AnyEvent/HTTPD/Util.pm
+/servers/pay/perl-5.38/man/man3/AnyEvent::HTTPD.3
+/servers/pay/perl-5.38/man/man3/AnyEvent::HTTPD::HTTPConnection.3
+/servers/pay/perl-5.38/man/man3/AnyEvent::HTTPD::HTTPServer.3
+/servers/pay/perl-5.38/man/man3/AnyEvent::HTTPD::Request.3
+/servers/pay/perl-5.38/man/man3/AnyEvent::HTTPD::Util.3

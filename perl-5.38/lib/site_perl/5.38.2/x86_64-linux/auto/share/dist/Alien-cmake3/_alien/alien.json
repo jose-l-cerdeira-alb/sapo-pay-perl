@@ -1,0 +1,15 @@
+{
+   "alien_build_version" : "2.80",
+   "command" : "cmake",
+   "install_type" : "share",
+   "legacy" : {
+      "finished_installing" : 1,
+      "install_type" : "share",
+      "original_prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-cmake3",
+      "version" : "3.28.1"
+   },
+   "perl_module_version" : "0.08",
+   "prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-cmake3",
+   "style" : "binary",
+   "version" : "3.28.1"
+}

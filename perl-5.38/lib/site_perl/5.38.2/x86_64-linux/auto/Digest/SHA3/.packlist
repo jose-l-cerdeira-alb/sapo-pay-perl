@@ -1,0 +1,5 @@
+/servers/pay/perl-5.38/bin/sha3sum
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/Digest/SHA3.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/Digest/SHA3/SHA3.so
+/servers/pay/perl-5.38/man/man1/sha3sum.1
+/servers/pay/perl-5.38/man/man3/Digest::SHA3.3

@@ -1,0 +1,12 @@
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IPC/Run3.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IPC/Run3/ProfArrayBuffer.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IPC/Run3/ProfLogReader.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IPC/Run3/ProfLogger.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IPC/Run3/ProfPP.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IPC/Run3/ProfReporter.pm
+/servers/pay/perl-5.38/man/man3/IPC::Run3.3
+/servers/pay/perl-5.38/man/man3/IPC::Run3::ProfArrayBuffer.3
+/servers/pay/perl-5.38/man/man3/IPC::Run3::ProfLogReader.3
+/servers/pay/perl-5.38/man/man3/IPC::Run3::ProfLogger.3
+/servers/pay/perl-5.38/man/man3/IPC::Run3::ProfPP.3
+/servers/pay/perl-5.38/man/man3/IPC::Run3::ProfReporter.3

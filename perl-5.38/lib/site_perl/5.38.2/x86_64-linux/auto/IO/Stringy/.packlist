@@ -1,0 +1,16 @@
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/AtomicFile.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/InnerFile.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/Lines.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/Scalar.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/ScalarArray.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/Stringy.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/Wrap.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/IO/WrapTie.pm
+/servers/pay/perl-5.38/man/man3/IO::AtomicFile.3
+/servers/pay/perl-5.38/man/man3/IO::InnerFile.3
+/servers/pay/perl-5.38/man/man3/IO::Lines.3
+/servers/pay/perl-5.38/man/man3/IO::Scalar.3
+/servers/pay/perl-5.38/man/man3/IO::ScalarArray.3
+/servers/pay/perl-5.38/man/man3/IO::Stringy.3
+/servers/pay/perl-5.38/man/man3/IO::Wrap.3
+/servers/pay/perl-5.38/man/man3/IO::WrapTie.3

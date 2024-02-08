@@ -1,0 +1,14 @@
+prefix=/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-Libxml2
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.12.4
+Description: libXML library version2.
+Requires:  zlib
+Libs: -L${libdir} -lxml2     -lm  
+Cflags: -I${includedir}/libxml2  
+Libs.private:  
+Cflags.private:  

@@ -1,0 +1,9 @@
+/servers/pay/perl-5.38/bin/makerandom
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Crypt/Random.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Crypt/Random/Generator.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Crypt/Random/Provider/File.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Crypt/Random/Provider/devrandom.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Crypt/Random/Provider/devurandom.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Crypt/Random/Provider/egd.pm
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Crypt/Random/Provider/rand.pm
+/servers/pay/perl-5.38/man/man3/Crypt::Random.3

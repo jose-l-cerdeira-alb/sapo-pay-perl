@@ -1,0 +1,6 @@
+/servers/pay/perl-5.38/bin/binhex.pl
+/servers/pay/perl-5.38/bin/debinhex.pl
+/servers/pay/perl-5.38/lib/site_perl/5.38.2/Convert/BinHex.pm
+/servers/pay/perl-5.38/man/man1/binhex.pl.1
+/servers/pay/perl-5.38/man/man1/debinhex.pl.1
+/servers/pay/perl-5.38/man/man3/Convert::BinHex.3

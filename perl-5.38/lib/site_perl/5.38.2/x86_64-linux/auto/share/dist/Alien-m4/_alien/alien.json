@@ -1,0 +1,14 @@
+{
+   "alien_build_version" : "2.80",
+   "command" : "m4",
+   "install_type" : "system",
+   "legacy" : {
+      "finished_installing" : 1,
+      "install_type" : "system",
+      "original_prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-m4",
+      "version" : "1.4.19"
+   },
+   "perl_module_version" : "0.21",
+   "prefix" : "/servers/pay/perl-5.38/lib/site_perl/5.38.2/x86_64-linux/auto/share/dist/Alien-m4",
+   "version" : "1.4.19"
+}
