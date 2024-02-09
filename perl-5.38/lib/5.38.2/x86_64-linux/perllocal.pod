@@ -7654,3 +7654,47 @@ C<EXE_FILES: >
 
 =back
 
+=head2 Fri Feb  9 16:09:56 2024: C<Module> L<Memcached::libmemcached|Memcached::libmemcached>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.38/lib/site_perl/5.38.2>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.001801>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Fri Feb  9 16:10:00 2024: C<Module> L<Cache::Memcached::libmemcached|Cache::Memcached::libmemcached>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.38/lib/site_perl/5.38.2>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.04001>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
