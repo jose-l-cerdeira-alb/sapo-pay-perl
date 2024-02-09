@@ -7698,3 +7698,25 @@ C<EXE_FILES: >
 
 =back
 
+=head2 Fri Feb  9 16:23:36 2024: C<Module> L<Net::SFTP::Foreign|Net::SFTP::Foreign>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.38/lib/site_perl/5.38.2>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.93>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
