@@ -7720,3 +7720,69 @@ C<EXE_FILES: >
 
 =back
 
+=head2 Thu Mar  7 11:56:00 2024: C<Module> L<AppConfig|AppConfig>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.38/lib/site_perl/5.38.2>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.71>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Thu Mar  7 11:56:25 2024: C<Module> L<Template|Template>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.38/lib/site_perl/5.38.2>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 3.101>
+
+=item *
+
+C<EXE_FILES: bin/tpage bin/ttree>
+
+=back
+
+=head2 Thu Mar  7 11:56:39 2024: C<Module> L<String::Similarity|String::Similarity>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.38/lib/site_perl/5.38.2>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.04>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
