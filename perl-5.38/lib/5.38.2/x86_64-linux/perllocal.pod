@@ -7786,3 +7786,25 @@ C<EXE_FILES: >
 
 =back
 
+=head2 Mon Mar 25 09:51:25 2024: C<Module> L<Regexp::IPv6|Regexp::IPv6>
+
+=over 4
+
+=item *
+
+C<installed into: /servers/pay/perl-5.38/lib/site_perl/5.38.2>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.03>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
